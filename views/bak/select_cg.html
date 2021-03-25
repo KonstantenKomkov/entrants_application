@@ -1,0 +1,1321 @@
+{{extend 'layout.html'}}
+<h1 class="h1">{{=T("Applying for a bachelor's degree or specialty")}}</h1>
+{{include 'link_menu.html'}}
+<link rel="stylesheet" href="{{=URL('static','css/preloaderAndBtn.css')}}"/>
+<h4>Выбор конкурсов</h4>
+<p style="text-align:left;text-indent: 2em;">Уважаемые абитуриенты, напоминаем Вам, что число выбранных направлений подготовки не может быть больше трёх.</p>
+<div class="container-fluid">
+    <div class="row equal">
+        <div class="col-md-12 col-lg-4 c-group justify-content-center">
+            <div style="width: 100%;" class="conteiner-fluid">
+                <div style="margin:0;" class="row">
+                    <div class="col text-left" style="padding:0;">
+                        <p style="font-weight: 700;padding:0;" >Первый</p>
+                    </div>
+                    <div class="col" style="padding:0;">
+                        <button class="btn Delete" style="display: none;" id="deleteOne" title="Удалить"></button>
+                    </div>
+                </div>
+                <div style="margin:0;" class="row">
+                    <div class="col-sm-12">
+                        <form id="formOne" style="width: 100%;">
+                            <label id="labFoOne" for="foOne" style="font-weight: 400;">Выберите форму обучения:</label>
+                            <select id="foOne" name="foOne" type="text" class="form-control"></select>
+                            <label id="labFacOne" for="facOne" style="display: none;font-weight: 400;">Факультет:</label>
+                            <select id="facOne" name="facOne" type="text" class="form-control" style="display: none;"></select>
+                            <label id="labDirOne" for="dirOne" style="display: none;font-weight: 400;">Направление подготовки:</label>
+                            <select id="dirOne" name="dirOne" type="text" class="form-control" style="display: none;"></select>
+                            <label id="labPrOne" for="prOne" style="display: none;font-weight: 400;">Направленность:</label>
+                            <select id="prOne" name="prOne" type="text" class="form-control" style="display: none;"></select>
+                        </form>
+                    </div>
+                    <div id="afterOne" style="width: 100%;display: none;">
+                        <p>Форма обучения: <b id="afterFoOne"></b></p>
+                        <p>Факультет: <b id="afterFacOne"></b></p>
+                        <p>Направление подготовки: <b id="afterDirOne"></b></p>
+                        <p>Направленность: <b id="afterPrOne"></b></p>
+                        <p>Конкурсная группа: <b id="afterCgOne"></b></p>
+                        <p>Количество бюджетных мест: <b id="placeOne"></b></p>
+                        <p>Минимальные баллы:</p>
+                        <p id="discOne"></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4 c-group justify-content-center">
+            <div style="width: 100%;" class="conteiner-fluid">
+                <div style="margin:0;" class="row">
+                    <div class="col text-left" style="padding:0;">
+                        <p style="font-weight: 700;padding:0;" >Второй</p>
+                    </div>
+                    <div class="col" style="padding:0;">
+                        <button class="btn Delete" style="display: none;" id="deleteTwo" title="Удалить"></button>
+                    </div>
+                </div>
+                <div style="margin:0;" class="row">
+                    <div class="col-sm-12">
+                        <form id="formTwo" style="width: 100%;">
+                            <label id="labFoTwo" for="foTwo" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+                            <select id="foTwo" name="foTwo" type="text" class="form-control" style="display: none;"></select>
+                            <label id="labFacTwo" for="facTwo" style="display: none;font-weight: 400;">Факультет:</label>
+                            <select id="facTwo" name="facTwo" type="text" class="form-control" style="display: none;"></select>
+                            <label id="labDirTwo" for="dirTwo" style="display: none;font-weight: 400;">Направление подготовки:</label>
+                            <select id="dirTwo" name="dirTwo" type="text" class="form-control" style="display: none;"></select>
+                            <label id="labPrTwo" for="prTwo" style="display: none;font-weight: 400;">Направленность:</label>
+                            <select id="prTwo" name="prTwo" type="text" class="form-control" style="display: none;"></select>
+                        </form>
+                    </div>
+                    <div id="afterTwo" style="width: 100%;display: none;">
+                        <p>Форма обучения: <b id="afterFoTwo"></b></p>
+                        <p>Факультет: <b id="afterFacTwo"></b></p>
+                        <p>Направление подготовки: <b id="afterDirTwo"></b></p>
+                        <p>Направленность: <b id="afterPrTwo"></b></p>
+                        <p>Конкурсная группа: <b id="afterCgTwo"></b></p>
+                        <p>Количество бюджетных мест: <b id="placeTwo"></b></p>
+                        <p>Минимальные баллы:</p>
+                        <p id="discTwo"></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4 c-group justify-content-center">
+            <div style="width: 100%;" class="conteiner-fluid">
+                <div style="margin:0;" class="row">
+                    <div class="col text-left" style="padding:0;">
+                        <p style="font-weight: 700;padding:0;" >Третий</p>
+                    </div>
+                    <div class="col" style="padding:0;">
+                        <button class="btn Delete" style="display: none;" id="deleteThree" title="Удалить"></button>
+                    </div>
+                </div>
+                <div style="margin:0;" class="row">
+                    <div class="col-sm-12">
+                        <form id="formThree" style="width: 100%;">
+                            <label id="labFoThree" for="foThree" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+                            <select id="foThree" name="foThree" type="text" class="form-control" style="display: none;"></select>
+                            <label id="labFacThree" for="facThree" style="display: none;font-weight: 400;">Факультет:</label>
+                            <select id="facThree" name="facThree" type="text" class="form-control" style="display: none;"></select>
+                            <label id="labDirThree" for="dirThree" style="display: none;font-weight: 400;">Направление подготовки:</label>
+                            <select id="dirThree" name="dirThree" type="text" class="form-control" style="display: none;"></select>
+                            <label id="labPrThree" for="prThree" style="display: none;font-weight: 400;">Направленность:</label>
+                            <select id="prThree" name="prThree" type="text" class="form-control" style="display: none;"></select>
+                        </form>
+                    </div>
+                    <div id="afterThree" style="width: 100%;display: none;">
+                        <p>Форма обучения: <b id="afterFoThree"></b></p>
+                        <p>Факультет: <b id="afterFacThree"></b></p>
+                        <p>Направление подготовки: <b id="afterDirThree"></b></p>
+                        <p>Направленность: <b id="afterPrThree"></b></p>
+                        <p>Конкурсная группа: <b id="afterCgThree"></b></p>
+                        <p>Количество бюджетных мест: <b id="placeThree"></b></p>
+                        <p>Минимальные баллы:</p>
+                        <p id="discThree"></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row equal">
+		<div class="col-md-12 col-lg-4 c-group justify-content-center" style="display: none;">
+			<div style="width: 100%;" class="conteiner-fluid">
+				<div style="margin:0;" class="row">
+					<div class="col text-left" style="padding:0;">
+						<p style="font-weight: 700;padding:0;">Четвёртый</p>
+					</div>
+					<div class="col" style="padding:0;">
+						<button class="btn Delete btn-default" style="display: none;" id="deleteFour" title="Удалить"></button>
+					</div>
+				</div>
+				<div style="margin:0;" class="row">
+					<div class="col-sm-12">
+						<form id="formFour" style="width: 100%;">
+							<label id="labFoFour" for="foFour" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+							<select id="foFour" name="foFour" type="text" class="form-control" style="display: none;"></select>
+							<label id="labFacFour" for="facFour" style="display: none;font-weight: 400;">Факультет:</label>
+							<select id="facFour" name="facFour" type="text" class="form-control" style="display: none;"></select>
+							<label id="labDirFour" for="dirFour" style="display: none;font-weight: 400;">Направление подготовки:</label>
+							<select id="dirFour" name="dirFour" type="text" class="form-control" style="display: none;"></select>
+							<label id="labPrFour" for="prFour" style="display: none;font-weight: 400;">Направленность:</label>
+							<select id="prFour" name="prFour" type="text" class="form-control" style="display: none;"></select>
+						</form>
+					</div>
+					<div id="afterFour" style="width: 100%;display: none;">
+						<p>Форма обучения: <b></b></p>
+						<p>Факультет: <b></b></p>
+						<p>Направление подготовки: <b id="afterDirFour"></b></p>
+						<p>Направленность: <b></b></p>
+						<p>Конкурсная группа: <b></b></p>
+						<p>Количество бюджетных мест: <b></b></p>
+						<p>Минимальные баллы:</p>
+						<p></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-12 c-group justify-content-center" style="display: none;">
+			<div style="width: 100%;" class="conteiner-fluid">
+				<div style="margin:0;" class="row">
+					<div class="col text-left" style="padding:0;">
+						<p style="font-weight: 700;padding:0;">Пятый</p>
+					</div>
+					<div class="col" style="padding:0;">
+						<button class="btn Delete btn-default" style="display: none;" id="deleteFifth" title="Удалить"></button>
+					</div>
+				</div>
+				<div style="margin:0;" class="row">
+					<div class="col-sm-12">
+						<form id="formFifth" style="width: 100%;">
+							<label id="labFoFifth" for="foFifth" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+							<select id="foFifth" name="foFifth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labFacFifth" for="facFifth" style="display: none;font-weight: 400;">Факультет:</label>
+							<select id="facFifth" name="facFifth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labDirFifth" for="dirFifth" style="display: none;font-weight: 400;">Направление подготовки:</label>
+							<select id="dirFifth" name="dirFifth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labPrFifth" for="prFifth" style="display: none;font-weight: 400;">Направленность:</label>
+							<select id="prFifth" name="prFifth" type="text" class="form-control" style="display: none;"></select>
+						</form>
+					</div>
+					<div id="afterFifth" style="width: 100%;display: none;">
+						<p>Форма обучения: <b></b></p>
+						<p>Факультет: <b></b></p>
+						<p>Направление подготовки: <b id="afterDirFifth"></b></p>
+						<p>Направленность: <b></b></p>
+						<p>Конкурсная группа: <b></b></p>
+						<p>Количество бюджетных мест: <b></b></p>
+						<p>Минимальные баллы:</p>
+						<p></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-12 c-group justify-content-center" style="display: none;">
+			<div style="width: 100%;" class="conteiner-fluid">
+				<div style="margin:0;" class="row">
+					<div class="col text-left" style="padding:0;">
+						<p style="font-weight: 700;padding:0;">Шестой</p>
+					</div>
+					<div class="col" style="padding:0;">
+						<button class="btn Delete btn-default" style="display: none;" id="deleteSixth" title="Удалить"></button>
+					</div>
+				</div>
+				<div style="margin:0;" class="row">
+					<div class="col-sm-12">
+						<form id="formSixth" style="width: 100%;">
+							<label id="labFoSixth" for="foSixth" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+							<select id="foSixth" name="foSixth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labFacSixth" for="facSixth" style="display: none;font-weight: 400;">Факультет:</label>
+							<select id="facSixth" name="facSixth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labDirSixth" for="dirSixth" style="display: none;font-weight: 400;">Направление подготовки:</label>
+							<select id="dirSixth" name="dirSixth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labPrSixth" for="prSixth" style="display: none;font-weight: 400;">Направленность:</label>
+							<select id="prSixth" name="prSixth" type="text" class="form-control" style="display: none;"></select>
+						</form>
+					</div>
+					<div id="afterSixth" style="width: 100%;display: none;">
+						<p>Форма обучения: <b></b></p>
+						<p>Факультет: <b></b></p>
+						<p>Направление подготовки: <b id="afterDirSixth"></b></p>
+						<p>Направленность: <b></b></p>
+						<p>Конкурсная группа: <b></b></p>
+						<p>Количество бюджетных мест: <b></b></p>
+						<p>Минимальные баллы:</p>
+						<p></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row equal">
+		<div class="col-lg-4 col-12 c-group justify-content-center" style="display: none;">
+			<div style="width: 100%;" class="conteiner-fluid">
+				<div style="margin:0;" class="row">
+					<div class="col text-left" style="padding:0;">
+						<p style="font-weight: 700;padding:0;">Седьмой</p>
+					</div>
+					<div class="col" style="padding:0;">
+						<button class="btn Delete btn-default" style="display: none;" id="deleteSeventh" title="Удалить"></button>
+					</div>
+				</div>
+				<div style="margin:0;" class="row">
+					<div class="col-sm-12">
+						<form id="formSeventh" style="width: 100%;">
+							<label id="labFoSeventh" for="foSeventh" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+							<select id="foSeventh" name="foSeventh" type="text" class="form-control" style="display: none;"></select>
+							<label id="labFacSeventh" for="facSeventh" style="display: none;font-weight: 400;">Факультет:</label>
+							<select id="facSeventh" name="facSeventh" type="text" class="form-control" style="display: none;"></select>
+							<label id="labDirSeventh" for="dirSeventh" style="display: none;font-weight: 400;">Направление подготовки:</label>
+							<select id="dirSeventh" name="dirSeventh" type="text" class="form-control" style="display: none;"></select>
+							<label id="labPrSeventh" for="prSeventh" style="display: none;font-weight: 400;">Направленность:</label>
+							<select id="prSeventh" name="prSeventh" type="text" class="form-control" style="display: none;"></select>
+						</form>
+					</div>
+					<div id="afterSeventh" style="width: 100%;display: none;">
+						<p>Форма обучения: <b></b></p>
+						<p>Факультет: <b></b></p>
+						<p>Направление подготовки: <b id="afterDirSeventh"></b></p>
+						<p>Направленность: <b></b></p>
+						<p>Конкурсная группа: <b></b></p>
+						<p>Количество бюджетных мест: <b></b></p>
+						<p>Минимальные баллы:</p>
+						<p></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-12 c-group justify-content-center" style="display: none;">
+			<div style="width: 100%;" class="conteiner-fluid">
+				<div style="margin:0;" class="row">
+					<div class="col text-left" style="padding:0;">
+						<p style="font-weight: 700;padding:0;">Восьмой</p>
+					</div>
+					<div class="col" style="padding:0;">
+						<button class="btn Delete btn-default" style="display: none;" id="deleteEighth" title="Удалить"></button>
+					</div>
+				</div>
+				<div style="margin:0;" class="row">
+					<div class="col-sm-12">
+						<form id="formEighth" style="width: 100%;">
+							<label id="labFoEighth" for="foEighth" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+							<select id="foEighth" name="foEighth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labFacEighth" for="facEighth" style="display: none;font-weight: 400;">Факультет:</label>
+							<select id="facEighth" name="facEighth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labDirEighth" for="dirEighth" style="display: none;font-weight: 400;">Направление подготовки:</label>
+							<select id="dirEighth" name="dirEighth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labPrEighth" for="prEighth" style="display: none;font-weight: 400;">Направленность:</label>
+							<select id="prEighth" name="prEighth" type="text" class="form-control" style="display: none;"></select>
+						</form>
+					</div>
+					<div id="afterEighth" style="width: 100%;display: none;">
+						<p>Форма обучения: <b></b></p>
+						<p>Факультет: <b></b></p>
+						<p>Направление подготовки: <b id="afterDirEighth"></b></p>
+						<p>Направленность: <b></b></p>
+						<p>Конкурсная группа: <b></b></p>
+						<p>Количество бюджетных мест: <b></b></p>
+						<p>Минимальные баллы:</p>
+						<p></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-12 c-group justify-content-center" style="display: none;">
+			<div style="width: 100%;" class="conteiner-fluid">
+				<div style="margin:0;" class="row">
+					<div class="col text-left" style="padding:0;">
+						<p style="font-weight: 700;padding:0;">Девятый</p>
+					</div>
+					<div class="col" style="padding:0;">
+						<button class="btn Delete btn-default" style="display: none;" id="deleteNinth" title="Удалить"></button>
+					</div>
+				</div>
+				<div style="margin:0;" class="row">
+					<div class="col-sm-12">
+						<form id="formNinth" style="width: 100%;">
+							<label id="labFoNinth" for="foNinth" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+							<select id="foNinth" name="foNinth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labFacNinth" for="facNinth" style="display: none;font-weight: 400;">Факультет:</label>
+							<select id="facNinth" name="facNinth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labDirNinth" for="dirNinth" style="display: none;font-weight: 400;">Направление подготовки:</label>
+							<select id="dirNinth" name="dirNinth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labPrNinth" for="prNinth" style="display: none;font-weight: 400;">Направленность:</label>
+							<select id="prNinth" name="prNinth" type="text" class="form-control" style="display: none;"></select>
+						</form>
+					</div>
+					<div id="afterNinth" style="width: 100%;display: none;">
+						<p>Форма обучения: <b></b></p>
+						<p>Факультет: <b></b></p>
+						<p>Направление подготовки: <b id="afterDirNinth"></b></p>
+						<p>Направленность: <b></b></p>
+						<p>Конкурсная группа: <b></b></p>
+						<p>Количество бюджетных мест: <b></b></p>
+						<p>Минимальные баллы:</p>
+						<p></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row equal">
+		<div class="col-lg-4 col-12 c-group justify-content-center" style="display: none;">
+			<div style="width: 100%;" class="conteiner-fluid">
+				<div style="margin:0;" class="row">
+					<div class="col text-left" style="padding:0;">
+						<p style="font-weight: 700;padding:0;">Десятый</p>
+					</div>
+					<div class="col" style="padding:0;">
+						<button class="btn Delete btn-default" style="display: none;" id="deleteTenth" title="Удалить"></button>
+					</div>
+				</div>
+				<div style="margin:0;" class="row">
+					<div class="col-sm-12">
+						<form id="formTenth" style="width: 100%;">
+							<label id="labFoTenth" for="foTenth" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+							<select id="foTenth" name="foTenth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labFacTenth" for="facTenth" style="display: none;font-weight: 400;">Факультет:</label>
+							<select id="facTenth" name="facTenth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labDirTenth" for="dirTenth" style="display: none;font-weight: 400;">Направление подготовки:</label>
+							<select id="dirTenth" name="dirTenth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labPrTenth" for="prTenth" style="display: none;font-weight: 400;">Направленность:</label>
+							<select id="prTenth" name="prTenth" type="text" class="form-control" style="display: none;"></select>
+						</form>
+					</div>
+					<div id="afterTenth" style="width: 100%;display: none;">
+						<p>Форма обучения: <b></b></p>
+						<p>Факультет: <b></b></p>
+						<p>Направление подготовки: <b id="afterDirTenth"></b></p>
+						<p>Направленность: <b></b></p>
+						<p>Конкурсная группа: <b></b></p>
+						<p>Количество бюджетных мест: <b></b></p>
+						<p>Минимальные баллы:</p>
+						<p></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-12 c-group justify-content-center" style="display: none;">
+			<div style="width: 100%;" class="conteiner-fluid">
+				<div style="margin:0;" class="row">
+					<div class="col text-left" style="padding:0;">
+						<p style="font-weight: 700;padding:0;">Одиннадцатый</p>
+					</div>
+					<div class="col" style="padding:0;">
+						<button class="btn Delete btn-default" style="display: none;" id="deleteEleventh" title="Удалить"></button>
+					</div>
+				</div>
+				<div style="margin:0;" class="row">
+					<div class="col-sm-12">
+						<form id="formEleventh" style="width: 100%;">
+							<label id="labFoEleventh" for="foEleventh" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+							<select id="foEleventh" name="foEleventh" type="text" class="form-control" style="display: none;"></select>
+							<label id="labFacEleventh" for="facEleventh" style="display: none;font-weight: 400;">Факультет:</label>
+							<select id="facEleventh" name="facEleventh" type="text" class="form-control" style="display: none;"></select>
+							<label id="labDirEleventh" for="dirEleventh" style="display: none;font-weight: 400;">Направление подготовки:</label>
+							<select id="dirEleventh" name="dirEleventh" type="text" class="form-control" style="display: none;"></select>
+							<label id="labPrEleventh" for="prEleventh" style="display: none;font-weight: 400;">Направленность:</label>
+							<select id="prEleventh" name="prEleventh" type="text" class="form-control" style="display: none;"></select>
+						</form>
+					</div>
+					<div id="afterEleventh" style="width: 100%;display: none;">
+						<p>Форма обучения: <b></b></p>
+						<p>Факультет: <b></b></p>
+						<p>Направление подготовки: <b id="afterDirEleventh"></b></p>
+						<p>Направленность: <b></b></p>
+						<p>Конкурсная группа: <b></b></p>
+						<p>Количество бюджетных мест: <b></b></p>
+						<p>Минимальные баллы:</p>
+						<p></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-12 c-group justify-content-center" style="display: none;">
+			<div style="width: 100%;" class="conteiner-fluid">
+				<div style="margin:0;" class="row">
+					<div class="col text-left" style="padding:0;">
+						<p style="font-weight: 700;padding:0;">Двенадцатый</p>
+					</div>
+					<div class="col" style="padding:0;">
+						<button class="btn Delete btn-default" style="display: none;" id="deleteTwelfth" title="Удалить"></button>
+					</div>
+				</div>
+				<div style="margin:0;" class="row">
+					<div class="col-sm-12">
+						<form id="formTwelfth" style="width: 100%;width: 100%;">
+							<label id="labFoTwelfth" for="foTwelfth" style="font-weight: 400;display: none;">Выберите форму обучения:</label>
+							<select id="foTwelfth" name="foTwelfth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labFacTwelfth" for="facTwelfth" style="display: none;font-weight: 400;">Факультет:</label>
+							<select id="facTwelfth" name="facTwelfth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labDirTwelfth" for="dirTwelfth" style="display: none;font-weight: 400;">Направление подготовки:</label>
+							<select id="dirTwelfth" name="dirTwelfth" type="text" class="form-control" style="display: none;"></select>
+							<label id="labPrTwelfth" for="prTwelfth" style="display: none;font-weight: 400;">Направленность:</label>
+							<select id="prTwelfth" name="prTwelfth" type="text" class="form-control" style="display: none;"></select>
+						</form>
+					</div>
+					<div id="afterTwelfth" style="display: none;">
+						<p>Форма обучения: <b></b></p>
+						<p>Факультет: <b></b></p>
+						<p>Направление подготовки: <b id="afterDirTwelfth"></b></p>
+						<p>Направленность: <b></b></p>
+						<p>Конкурсная группа: <b></b></p>
+						<p>Количество бюджетных мест: <b></b></p>
+						<p>Минимальные баллы:</p>
+						<p></p>
+						<p>Суммарный пороговый балл: <b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="cssload-loader">
+        <div class="cssload-inner cssload-one"></div>
+        <div class="cssload-inner cssload-two"></div>
+        <div class="cssload-inner cssload-three"></div>
+    </div>
+</div>
+{{=form}}
+<script>
+$(function() {
+	function getMinSum(fo, fac, dir, cg) {
+		var fo_id, fac_id, x, y, z, w;
+		for (var x = 0; x < listFO.length; x++) {
+			if (listFO[x][1] == fo) {
+				fo_id = listFO[x][0];
+				break;
+			}
+		}
+		for (var x = 0; x < listFAC.length; x++) {
+			if (listFAC[x][1] == fac) {
+				fac_id = listFAC[x][0];
+				break;
+			}
+		}
+
+		for (x = 0; x < myData.length; x++) {
+			if (myData[x].fo == fo_id) {
+				for (y = 0; y < myData[x].fac.length; y++) {
+					if (myData[x].fac[y].fName == fac_id) {
+						for (z = 0; z < myData[x].fac[y].dir.length; z++) {
+							if (myData[x].fac[y].dir[z].dirName == dir) {
+								for (w = 0; w < myData[x].fac[y].dir[z].cg.length; w++) {
+									if (myData[x].fac[y].dir[z].cg[w].cgName == cg) {
+										return myData[x].fac[y].dir[z].cg[w].minSum;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+    function addFoOptionsForStayCg(form) {
+        var a,b,c,d,i,f,j,addInCanAddCg,addFo,currentForms;
+        a = [];
+        f = [];
+        canAddCg = [];
+        //конкурсные группы, которые уже были выбраны
+        for (i = 0; i < afterDir.length; i++) {
+            if ($($($(afterDir[i]).parent().siblings()[3]).children()[0]).text()!='') {
+                a.push([$($($(afterDir[i]).parent().siblings()[0]).children()[0]).text().charAt(0).toUpperCase()+$($($(afterDir[i]).parent().siblings()[0]).children()[0]).text().substr(1),$($($(afterDir[i]).parent().siblings()[3]).children()[0]).text()]);
+            }
+        }
+        //конкурсные группы которые могут быть выбраны
+        for (i = 0; i < maxCountDir.length; i++) {
+            for (b = 0; b < myData.length; b++) {
+                for (c = 0; c < myData[b].fac.length; c++) {
+                    for (d = 0; d < myData[b].fac[c].dir.length; d++) {
+                        if (maxCountDir[i]==myData[b].fac[c].dir[d].dirName) {
+                            for (j = 0; j < myData[b].fac[c].dir[d].cg.length; j++) {
+                                for (e = 0; e < listFO.length; e++) {
+                                    if (listFO[e][0]==myData[b].fo) {
+                                        f.push([listFO[e][1],myData[b].fac[c].dir[d].cg[j].cgName,myData[b].fac[c].fName,myData[b].fac[c].dir[d].dirName]);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //конкурсные группы, которые ещё можно выбрать
+        for (i = 0; i < f.length; i++) {
+            addInCanAddCg = true;
+            for (j = 0; j < a.length; j++) {
+                if ((f[i][0]==a[j][0])&&(f[i][1]==a[j][1])) {
+                    addInCanAddCg = false;
+                    continue;
+                }
+            }
+            if (addInCanAddCg) {
+                canAddCg.push(f[i]);
+            }
+        }
+
+        //скрываем все формы
+        for (i = 0; i < forms.length; i++) {
+            if ($(forms[i].children()[0]).css('display')=='inline-block') {
+                $(forms[i].children()[0]).hide();
+                $(forms[i].children()[1]).hide();
+                $(forms[i].children()[2]).hide();
+                $(forms[i].children()[3]).hide();
+                $(forms[i].children()[4]).hide();
+                $(forms[i].children()[5]).hide();
+                $(forms[i].children()[6]).hide();
+                $(forms[i].children()[7]).hide();
+            }
+        }
+        for (i = 0; i < forms.length; i++) {
+            if (($(forms[i].children()[0]).css('display')=='none') && ($($($($(forms[i]).parent().siblings()[0]).children()[0]).children()[0]).text()=='')) {
+                //показываем ту, с которой будем работать
+                $(forms[i].children()[0]).show();
+                $(forms[i].children()[1]).show();
+                $(forms[i].children()[1]).find('option').remove();
+                $(forms[i].children()[1]).append($('<option>', {value: "", text: ""}));
+                for (j = 0; j < canAddCg.length; j++) {
+                    addFo = true;
+                    for (b = 0; b < $(forms[i].children()[1]).children().length; b++) {
+                        if ($($(forms[i].children()[1]).children()[b]).text()==canAddCg[j][0]) {
+                            addFo = false;
+                            continue;
+                        }
+                    }
+                    if (addFo) {
+                        $(forms[i].children()[1]).append($('<option>', {
+                            value: canAddCg[j][0],
+                            text: canAddCg[j][0]
+                        }));
+                    }
+                }
+                $($(forms[i].children()[1]).children()[0]).attr("selected", "selected");
+                break;
+            }
+        }
+    }
+
+    function funCountCurrentDir() {
+        var mustAdd;
+        maxCountDir = ['','',''];
+        for (var i = 0; i < afterDir.length; i++) {
+            if ($(afterDir[i]).text()!='') {
+
+                for (var j = 0; j < maxCountDir.length; j++) {
+                    if (maxCountDir[j]=='') {
+                        canAddDir = true;
+                        break;
+                    }
+                    else {
+                        canAddDir = false;
+                    }
+                }
+
+                if (canAddDir) {
+                    for (j = 0; j < maxCountDir.length; j++) {
+                        if (maxCountDir[j]!=$(afterDir[i]).text()) {
+                            mustAdd = true;
+                        }
+                        else {
+                            mustAdd = false;
+                            break;
+                        }
+                    }
+
+                    if (mustAdd) {
+                        for (j = 0; j < maxCountDir.length; j++) {
+                            if (maxCountDir[j]=='') {
+                                maxCountDir[j]=$(afterDir[i]).text();
+                                break;
+                            }
+                        }
+                    }
+                }
+                for (var j = 0; j < maxCountDir.length; j++) {
+                    if (maxCountDir[j]=='') {
+                        canAddDir = true;
+                        break;
+                    }
+                    else {
+                        canAddDir = false;
+                    }
+                }
+            }
+        }
+        return maxCountDir;
+    }
+
+    function funCountCompetitions() {
+        var a,b,c,d,i,resultsView,mustView,uniqueA;
+        a = [];
+        resultsView = [[0,3,3],[1,3,3],[2,3,3],[3,3,3],[1,4,3],[2,4,3],[3,4,4],[4,4,4],[1,5,3],[2,5,3],[3,5,5],[4,5,5],[5,5,5],[1,6,3],[2,6,3],[3,6,6],[4,6,6],[5,6,6],[6,6,6],[1,7,3],[2,7,3],[3,7,6],[4,7,6],[5,7,6],[6,7,7],[7,7,7],[1,8,3],[2,8,3],[3,8,6],[4,8,6],[5,8,6],[6,8,8],[7,8,8],[8,8,8],[1,9,3],[2,9,3],[3,9,6],[4,9,6],[5,9,6],[6,9,9],[7,9,9],[8,9,9],[9,9,9],[1,10,3],[2,10,3],[3,10,6],[4,10,6],[5,10,6],[6,10,9],[7,10,9],[8,10,9],[9,10,10],[10,10,10],[1,11,3],[2,11,3],[3,11,6],[4,11,6],[5,11,6],[6,11,9],[7,11,9],[8,11,9],[9,11,11],[10,11,11],[11,11,11],[1,12,3],[2,12,3],[3,12,6],[4,12,6],[5,12,6],[6,12,9],[7,12,9],[8,12,9],[9,12,12],[10,12,12],[11,12,12],[12,12,12]];
+        
+		factCountCompetitions = 0;
+        
+		for (i = 0; i < afterDir.length; i++) {
+            if ($(afterDir[i]).text()!='') {
+                a.push($(afterDir[i]).text());
+            }
+        }
+        visibleCountCompetitions = a.length;
+        uniqueA = [];
+        $.each(a, function(i, el){
+            if ($.inArray(el, uniqueA) === -1) uniqueA.push(el);
+        });
+        for (i = 0; i < uniqueA.length; i++) {
+            for (b = 0; b < myData.length; b++) {
+                for (c = 0; c < myData[b].fac.length; c++) {
+                    for (d = 0; d < myData[b].fac[c].dir.length; d++) {
+                        if (uniqueA[i]==myData[b].fac[c].dir[d].dirName) {
+                            factCountCompetitions=factCountCompetitions+myData[b].fac[c].dir[d].cg.length;
+                        }
+                    }
+                }
+            }
+        }
+        if (uniqueA.length==1) {
+            factCountCompetitions = factCountCompetitions + 2;
+        }
+        if (uniqueA.length==2) {
+            factCountCompetitions = factCountCompetitions + 1;
+        }
+        if (factCountCompetitions<3) {
+            factCountCompetitions = 3;
+        }
+        for (i = 0; i < resultsView.length; i++) {
+            if ((resultsView[i][0]==a.length) && (resultsView[i][1]==factCountCompetitions)) {
+                mustView = resultsView[i][2];
+                break;
+            }
+        }
+        for (i = 0; i < forms.length; i++) {
+            if (mustView>0) {
+                $(forms[i]).parent().parent().parent().parent().show();
+                mustView--;
+            }
+            else {
+                if ($($($($(forms[i]).parent().siblings()[0]).children()[0]).children()[0]).text()=='') {
+                    $(forms[i]).parent().parent().parent().parent().hide();
+                }
+            }
+        }
+    }
+
+    $('#deleteOne,#deleteTwo,#deleteThree,#deleteFour,#deleteFifth,#deleteSixth,#deleteSeventh,#deleteEighth,#deleteNinth,#deleteTenth,#deleteEleventh,#deleteTwelfth').on('click', function() {
+        var a,i,k,delFo,delFac,delDir,delPr,afterForm,getChildrenAfter;
+        k=0;
+        //показываем форму
+        $('.cssload-loader').show();
+        $(this).hide();
+
+        form = $($(this).parent().parent().siblings()[0]).children().children();
+        form.show();
+        getChildrenAfter = $($($(this).parent().parent().siblings()[0]).children()[1]).children();
+        delFo = $($(getChildrenAfter[0]).children()).text().charAt(0).toUpperCase() + $($(getChildrenAfter[0]).children()).text().substr(1)
+        delFac = $($(getChildrenAfter[1]).children()).text();
+        delDir = $($(getChildrenAfter[2]).children()).text();
+        delPr = $($(getChildrenAfter[3]).children()).text();
+
+        for (i = 0; i < afterDir.length; i++) {
+            if ($(afterDir[i]).text()==delDir) {
+                k++;
+            }
+        }
+        if (k==1) {
+            for (i = 0; i < maxCountDir.length; i++) {
+                if (maxCountDir[i]==delDir) {
+                    maxCountDir[i]='';
+                    canAddDir = true;
+                }
+            }
+        }
+
+        afterForm = $(form.parent().siblings()[1]);
+        afterForm.children().children().text('');
+        $(afterForm.children()[7]).children().remove();
+        $(afterForm.children()[7]).text('');
+        afterForm.hide();
+
+        $(form.children()[2]).hide();
+        $(form.children()[3]).hide();
+        $(form.children()[4]).hide();
+        $(form.children()[5]).hide();
+        $(form.children()[6]).hide();
+        $(form.children()[7]).hide();
+
+        //удаление AJAX
+        var data = {fo : delFo, fac : delFac, direction : delDir, pr : delPr};
+        console.log(data);
+        jQuery.ajax({
+            type: "POST",
+            url: "delete_competition",
+            data: {data: JSON.stringify(data)},
+            cache: false,
+            success: function(response) {
+                $('.cssload-loader').hide();
+            },
+            error: function(data) {
+                alert('Возникла непредвиденная ошибка: сообщите о ней по адресу '+contactEmail+': приложите скриншот и укажите время возникновения. Для устранения перезагрузите страницу.');
+                $('.cssload-loader').hide();
+            }
+        });
+
+        if (!canAddDir) {
+            maxCountDir = funCountCurrentDir();
+            funCountCompetitions();
+            addFoOptionsForStayCg(form);
+        }
+        else {
+            //скрываем все формы
+            for (i = 0; i < forms.length; i++) {
+                if ($(forms[i].children()[0]).css('display')=='inline-block') {
+                    $(forms[i].children()[0]).hide();
+                    $(forms[i].children()[1]).hide();
+                    $(forms[i].children()[2]).hide();
+                    $(forms[i].children()[3]).hide();
+                    $(forms[i].children()[4]).hide();
+                    $(forms[i].children()[5]).hide();
+                    $(forms[i].children()[6]).hide();
+                    $(forms[i].children()[7]).hide();
+                }
+            }
+
+            //показываем форму в первом пустом конкурсе
+            for (i = 0; i < forms.length; i++) {
+                if (($(forms[i].children()[0]).css('display')=='none') && ($($($(forms[i].parent().siblings()[0]).children()[0]).children()[0]).text()=='')) {
+                    $(forms[i].children()[0]).show();
+                    $(forms[i].children()[1]).show();
+                    $(forms[i].children()[1]).find('option').remove();
+                    $(forms[i].children()[1]).append($('<option>', {value: "",text: ""}));
+                    for (a = 0; a < myData.length; a++) {
+                        for (var k = 0; k < listFO.length; k++) {
+                            if (listFO[k][0]==myData[a].fo) {
+                                $(forms[i].children()[1]).append($('<option>', {
+                                    value: listFO[k][1],
+                                    text: listFO[k][1]
+                                }));
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        funCountCompetitions();
+    });
+
+    function showConcursInfo(data) {
+        var newDir,i;
+        newDir = true;
+        $(numberForm).hide();
+        //добавляем
+        $($(numberForm.parent().siblings().children()[0]).children()).text($(numberForm.children()[1]).val().toLowerCase());
+        $($(numberForm.parent().siblings().children()[1]).children()).text($(numberForm.children()[3]).val());
+        $($(numberForm.parent().siblings().children()[2]).children()).text($(numberForm.children()[5]).val());
+        $($(numberForm.parent().siblings().children()[3]).children()).text($(numberForm.children()[7]).val());
+
+        $(numberForm.parent().siblings()).show();
+        data = JSON.parse(data);
+		
+        $($(numberForm.parent().siblings().children()[4]).children()).text(data.cg);
+
+		var min_ball = getMinSum($(numberForm.children()[1]).val(), $(numberForm.children()[3]).val(), $(numberForm.children()[5]).val(), data.cg);
+		$($(numberForm.parent().siblings().children()[8]).children()).text(min_ball);
+
+        $($(numberForm.parent().siblings().children()[5]).children()).text(data.budPlace);
+        for (i = 0; i < data.disc.length-1; i++) {
+            try {
+                $(numberForm.parent().siblings().children()[7]).append(data.disc[i][0] + ' - ' + data.disc[i][1]+';<br>')
+            }
+            catch (err) {
+                console.log('Предметы и минимальные (пороговые) баллы для ' + (i+1) + ' конкурса не переданы!');
+            }
+        }
+        try {
+            $(numberForm.parent().siblings().children()[7]).append(data.disc[data.disc.length-1][0] + ' - ' + data.disc[data.disc.length-1][1]+'.');
+        }
+        catch (err) {
+                console.log('Предметы и минимальные (пороговые) баллы для ' + (i+1) + ' конкурса не переданы!');
+        }
+        $(numberForm.parent().parent().siblings().children()[1]).children().show();
+        maxCountDir = funCountCurrentDir();
+        funCountCompetitions();
+        $('#btnNext').show();
+        $('.cssload-loader').hide();
+        for (i = 0; i < forms.length; i++) {
+            if (($(forms[i].children()[0]).css('display')=='none') && ($(forms[i].parent().siblings()[0]).css('display')=='none')) {
+                form = forms[i];
+                break;
+            }
+        }
+        //если 3 направления уже выбраны
+        if (!canAddDir) {
+            addFoOptionsForStayCg(form);
+        }
+        else {
+            $(form.children()[1]).find('option').remove();
+            $(form.children()[0]).show();
+            $(form.children()[1]).show();
+            //нужно добавить опции
+            $(form.children()[1]).append($('<option>', {value: "",text: ""}));
+            for (i = 0; i < myData.length; i++) {
+                for (var k = 0; k < listFO.length; k++) {
+                    if (listFO[k][0]==myData[i].fo) {
+                        $(form.children()[1]).append($('<option>', {
+                            value: listFO[k][1],
+                            text: listFO[k][1]
+                        }));
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    $('#foOne,#foTwo,#foThree,#foFour,#foFifth,#foSixth,#foSeventh,#foEighth,#foNinth,#foTenth,#foEleventh,#foTwelfth').on('change', function() {
+        var a,b,d,i,k,addFac;
+        if ($(this).val()!="") {
+            $($(this).siblings()[2]).find('option').remove();
+            $($(this).siblings()[1]).hide();
+            $($(this).siblings()[2]).hide();
+            $($(this).siblings()[3]).hide();
+            $($(this).siblings()[4]).hide();
+            $($(this).siblings()[5]).hide();
+            $($(this).siblings()[6]).hide();
+            for (i = 0; i < listFO.length; i++) {
+                if (listFO[i][1]==$(this).val()) {
+                    fo = listFO[i][0];
+                    break;
+                }
+            }
+            for (i = 0; i < myData.length; i++) {
+                if (myData[i].fo==fo) {
+                    $($(this).siblings()[1]).show();
+                    $($(this).siblings()[2]).show();
+                    $($(this).siblings()[2]).append($('<option>', {value: "",text: ""}));
+
+                    if (!canAddDir) {
+                        for (a = 0; a < canAddCg.length; a++) {
+                            if (canAddCg[a][0]==$(this).val()) {
+                                for (var k = 0; k < listFAC.length; k++) {
+                                    if (canAddCg[a][2]==listFAC[k][0]) {
+                                        addFac = true;
+                                        for (b = 0; b < $($(this).siblings()[2]).children().length; b++) {
+                                            if (listFAC[k][1]==$($($(this).siblings()[2]).children()[b]).text()) {
+                                                addFac = false;
+                                                continue;
+                                            }
+                                        }
+                                        if (addFac) {
+                                            $($(this).siblings()[2]).append($('<option>', {
+                                                value: listFAC[k][1],
+                                                text: listFAC[k][1]
+                                            }));
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        for (k = 0; k < myData[i].fac.length; k++) {
+                            for (b = 0; b < listFAC.length; b++) {
+                                if (listFAC[b][0]==myData[i].fac[k].fName) {
+                                    $($(this).siblings()[2]).append($('<option>', {
+                                        value: listFAC[b][1],
+                                        text: listFAC[b][1]
+                                    }));
+                                    fac = listFAC[b][0];
+                                    break;
+                                }
+                            }
+                            if (myData[i].fac.length==1) {
+                                $($(this).siblings()[2]).val(listFAC[b][1]);
+                                $($(this).siblings()[4]).find('option').remove();
+                                $($(this).siblings()[3]).show();
+                                $($(this).siblings()[4]).show();
+                                $($(this).siblings()[4]).append($('<option>', {value: "",text: ""}));
+                                for (d = 0; d < myData[i].fac[k].dir.length; d++) {
+                                    $($(this).siblings()[4]).append($('<option>', {
+                                        value: myData[i].fac[k].dir[d].dirName,
+                                        text: myData[i].fac[k].dir[d].dirName
+                                    }));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            $($(this).siblings()[1]).hide();
+            $($(this).siblings()[2]).hide();
+            $($(this).siblings()[3]).hide();
+            $($(this).siblings()[4]).hide();
+            $($(this).siblings()[5]).hide();
+            $($(this).siblings()[6]).hide();
+        }
+    });
+
+    $('#facOne,#facTwo,#facThree,#facFour,#facFifth,#facSixth,#facSeventh,#facEighth,#facNinth,#facTenth,#facEleventh,#facTwelfth').on('change', function() {
+        var addOption,b,k,m,n,x,y,foName,facName,addDir;
+        if ($(this).val()!="") {
+            $($(this).siblings()[4]).find('option').remove();
+            $($(this).siblings()[3]).hide();
+            $($(this).siblings()[4]).hide();
+            $($(this).siblings()[5]).hide();
+            $($(this).siblings()[6]).hide();
+            for (var i = 0; i < listFAC.length; i++) {
+                if (listFAC[i][1]==$(this).val()) {
+                    fac = listFAC[i][0];
+                    break;
+                }
+            }
+            $($(this).siblings()[3]).show();
+            $($(this).siblings()[4]).show();
+            $($(this).siblings()[4]).append($('<option>', {value: "",text: ""}));
+
+            for (i = 0; i < myData.length; i++) {
+                if (myData[i].fo==fo) {
+                    for (k = 0; k < myData[i].fac.length; k++) {
+                        if (!canAddDir) {
+                            for (m = 0; m < canAddCg.length; m++) {
+                                //получаем значения для fo и fac
+                                for (y = 0; y < listFO.length; y++) {
+                                    if (listFO[y][0]==fo) {
+                                        foName = listFO[y][1];
+                                        break;
+                                    }
+                                }
+                                if ((canAddCg[m][0]==foName) && (canAddCg[m][2]==fac)) {
+                                    for (y = 0; y < listFAC.length; y++) {
+                                        if (listFAC[y][0]==fac) {
+                                            facName = listFAC[y][1];
+                                            break;
+                                        }
+                                    }
+                                    addDir = true;
+                                    for (n = 0; n < $($(this).siblings()[4]).children().length; n++) {
+                                        if ($($($(this).siblings()[4]).children()[n]).text()==canAddCg[m][3]) {
+                                            addDir = false;
+                                            continue;
+                                        }
+                                    }
+                                    if (addDir) {
+                                        $($(this).siblings()[4]).append($('<option>', {
+                                            value: canAddCg[m][3],
+                                            text: canAddCg[m][3]
+                                        }));
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            if (myData[i].fac[k].fName==fac) {
+                                for (m = 0; m < myData[i].fac[k].dir.length; m++) {
+                                    b = 0;
+                                    for (n = 0; n < maxCountDir.length; n++) {
+                                        if (maxCountDir[n]!=myData[i].fac[k].dir[m].dirName) {
+                                            addOption = true;
+                                        }
+                                        else {
+                                            //получаем значения для fo и fac
+                                            for (y = 0; y < listFO.length; y++) {
+                                                if (listFO[y][0]==fo) {
+                                                    foName = listFO[y][1];
+                                                    break;
+                                                }
+                                            }
+                                            for (y = 0; y < listFAC.length; y++) {
+                                                if (listFAC[y][0]==fac) {
+                                                    facName = listFAC[y][1];
+                                                    break;
+                                                }
+                                            }
+                                            //считаем сколько раз выбрали это направление - b
+                                            choosenCg = [];
+                                            for (x = 0; x < afterDir.length; x++) {
+                                                if (
+                                                    ($($($(afterDir[x]).parent().siblings()[0]).children()[0]).text().charAt(0).toUpperCase()+
+                                                     $($($(afterDir[x]).parent().siblings()[0]).children()[0]).text().substr(1)==foName) &&
+                                                    ($($($(afterDir[x]).parent().siblings()[1]).children()[0]).text()==facName) &&
+                                                    ($(afterDir[x]).text()==myData[i].fac[k].dir[m].dirName)
+                                                ) {
+                                                    b++;
+                                                    choosenCg.push($($($(afterDir[x]).parent().siblings()[4]).children()[0]).text());
+                                                }
+                                            }
+                                            if (b < myData[i].fac[k].dir[m].cg.length) {
+                                                addOption = true;
+                                            }
+                                            else {
+                                                addOption = false;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if (addOption) {
+                                        $($(this).siblings()[4]).append($('<option>', {
+                                            value: myData[i].fac[k].dir[m].dirName,
+                                            text: myData[i].fac[k].dir[m].dirName
+                                        }));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            //скрываем элементы
+            $($(this).siblings()[3]).hide();
+            $($(this).siblings()[4]).hide();
+            $($(this).siblings()[5]).hide();
+            $($(this).siblings()[6]).hide();
+        }
+    });
+
+    $('#dirOne,#dirTwo,#dirThree,#dirFour,#dirFifth,#dirSixth,#dirSeventh,#dirEighth,#dirNinth,#dirTenth,#dirEleventh,#dirTwelfth').on('change', function() {
+        var choosenCg,foName,facName,somethingChosen;
+        if ($(this).val()!="") {
+            $($(this).siblings()[6]).find('option').remove();
+            $($(this).siblings()[5]).hide();
+            $($(this).siblings()[6]).hide();
+            $($(this).siblings()[6]).append($('<option>', {value: "",text: ""}));
+            for (var i = 0; i < myData.length; i++) {
+                if (myData[i].fo==fo) {
+                    for (var k = 0; k < myData[i].fac.length; k++) {
+                        if (myData[i].fac[k].fName==fac) {
+                            for (var m = 0; m < myData[i].fac[k].dir.length; m++) {
+                                if (myData[i].fac[k].dir[m].dirName==$(this).val()) {
+                                    //для cg, которые не были выбраны добавляем профили
+                                    //находим cg которые уже выбраны
+                                    choosenCg = [];
+                                    somethingChosen = false;
+                                    for (var y = 0; y < listFO.length; y++) {
+                                        if (listFO[y][0]==fo) {
+                                            foName = listFO[y][1];
+                                            break;
+                                        }
+                                    }
+                                    for (var y = 0; y < listFAC.length; y++) {
+                                        if (listFAC[y][0]==fac) {
+                                            facName = listFAC[y][1];
+                                            break;
+                                        }
+                                    }
+                                    for (var x = 0; x < afterDir.length; x++) {
+                                        if (
+                                            ($($($(afterDir[x]).parent().siblings()[0]).children()[0]).text().charAt(0).toUpperCase()+
+                                                 $($($(afterDir[x]).parent().siblings()[0]).children()[0]).text().substr(1)==foName) &&
+                                            ($($($(afterDir[x]).parent().siblings()[1]).children()[0]).text()==facName) &&
+                                            ($(afterDir[x]).text()==myData[i].fac[k].dir[m].dirName)
+                                        ) {
+                                            choosenCg.push($($($(afterDir[x]).parent().siblings()[3]).children()[0]).text());
+                                            somethingChosen = true;
+                                        }
+                                    }
+                                    //к не выбранным cg добавляем профили
+                                    for (var p = 0; p < myData[i].fac[k].dir[m].cg.length; p++) {
+                                        if (somethingChosen) {
+                                            for (x = 0; x < choosenCg.length; x++) {
+                                                if (myData[i].fac[k].dir[m].cg[p].cgName!=choosenCg[x]) {
+                                                    for (var n = 0; n < myData[i].fac[k].dir[m].cg[p].pr.length; n++) {
+                                                        $($(this).siblings()[6]).append($('<option>', {
+                                                            value: myData[i].fac[k].dir[m].cg[p].pr[n],
+                                                            text: myData[i].fac[k].dir[m].cg[p].pr[n]
+                                                        }));
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else {
+                                            for (var n = 0; n < myData[i].fac[k].dir[m].cg[p].pr.length; n++) {
+                                                $($(this).siblings()[6]).append($('<option>', {
+                                                    value: myData[i].fac[k].dir[m].cg[p].pr[n],
+                                                    text: myData[i].fac[k].dir[m].cg[p].pr[n]
+                                                }));
+                                            }
+                                        }
+                                    }
+                                    $($(this).siblings()[5]).show();
+                                    $($(this).siblings()[6]).show();
+                                    if ($($(this).siblings()[6]).children().length==2) {
+                                        $('.cssload-loader').show();
+                                        $($(this).siblings()[6]).val(myData[i].fac[k].dir[m].cg[p-1].pr[0]);
+                                        numberForm = $(this).parent();
+                                        
+										data = {fo : $($(this).siblings()[1]).val(), fac : $($(this).siblings()[3]).val(), direction : $(this).val(), pr : $($($(this).siblings()[6]).children()[1]).val()};
+                                        jQuery.ajax({
+                                            type: "POST",
+                                            url: "load_additional_info",
+                                            dataType: 'json',
+                                            data: {data: JSON.stringify(data)},
+                                            cache: false,
+                                            success: showConcursInfo,
+                                            error: function(data) {
+                                            	console.log(data);
+                                                alert('Возникла непредвиденная ошибка: сообщите о ней по адресу '+contactEmail+': приложите скриншот и укажите время возникновения. Для устранения перезагрузите страницу.');
+                                                $('.cssload-loader').hide();
+                                            }
+                                        });
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            $($(this).siblings()[5]).hide();
+            $($(this).siblings()[6]).hide();
+        }
+    });
+
+    $('#prOne,#prTwo,#prThree,#prFour,#prFifth,#prSixth,#prSeventh,#prEighth,#prNinth,#prTenth,#prEleventh,#prTwelfth').on('change', function() {
+        $('.cssload-loader').show();
+        numberForm = $(this).parent();
+        data = {fo : $($(this).siblings()[1]).val(), fac : $($(this).siblings()[3]).val(), direction : $($(this).siblings()[5]).val(), pr : $(this).val()};
+
+        jQuery.ajax({
+            type: "POST",
+            url: "load_additional_info",
+            data: {data: JSON.stringify(data)},
+            cache: false,
+            success: showConcursInfo,
+            error: function(data) {
+                alert('Возникла непредвиденная ошибка: сообщите о ней по адресу '+contactEmail+': приложите скриншот и укажите время возникновения. Для устранения перезагрузите страницу.');
+                $('.cssload-loader').hide();
+            }
+        });
+    });
+
+    $('#btnNext').on('click', function() {
+
+        var doYouWantMoreCompetitions;
+        if (visibleCountCompetitions==factCountCompetitions) {
+            window.location.href = 'select_cg';
+        }
+        else {
+
+            if (visibleCountCompetitions!=0) {
+                doYouWantMoreCompetitions = confirm('У Вас есть возможность участвовать в '+factCountCompetitions+' конкурсах. Продолжить заполнение заявления с неполным количеством конкурсов?');
+                if (doYouWantMoreCompetitions) {
+                    window.location.href = 'select_cg';
+                }
+            }
+        }
+    });
+
+    var myData,listFO,listFAC,competitions,fo,fac,numberForm,form,forms,afterDir,maxCountDir,canAddDir,factCountCompetitions,visibleCountCompetitions,canAddCg,contactEmail;
+    forms = [];
+    forms.push($('#formOne'));
+    forms.push($('#formTwo'));
+    forms.push($('#formThree'));
+    forms.push($('#formFour'));
+    forms.push($('#formFifth'));
+    forms.push($('#formSixth'));
+    forms.push($('#formSeventh'));
+    forms.push($('#formEighth'));
+    forms.push($('#formNinth'));
+    forms.push($('#formTenth'));
+    forms.push($('#formEleventh'));
+    forms.push($('#formTwelfth'));
+    {{=ASSIGNJS(myData = my_data)}};
+    {{=ASSIGNJS(listFO = list_fo)}};
+    {{=ASSIGNJS(listFAC = list_fac)}};
+    competitions = '{{=competitions}}';
+    myData = JSON.parse(myData);
+    listFO = JSON.parse(listFO);
+    listFAC = JSON.parse(listFAC);
+    canAddDir = true;
+    contactEmail = 'priem@rgau-msha.ru';
+    afterDir = ['#afterDirOne','#afterDirTwo','#afterDirThree','#afterDirFour','#afterDirFifth','#afterDirSixth','#afterDirSeventh','#afterDirEighth','#afterDirNinth','#afterDirTenth','#afterDirEleventh','#afterDirTwelfth'];
+    maxCountDir = ['','',''];
+    
+	if (competitions=='' | competitions=='[]') {
+        funCountCompetitions();
+        $('#foOne').append($('<option>', {value: "",text: ""}));
+        for (var i = 0; i < myData.length; i++) {
+            for (var k = 0; k < listFO.length; k++) {
+                if (listFO[k][0]==myData[i].fo) {
+                    $('#foOne').append($('<option>', {
+                        value: listFO[k][1],
+                        text: listFO[k][1]
+                    }));
+                    break;
+                }
+            }
+        }
+    }
+    else {
+        competitions = competitions.replace(/&quot;/g, '\"');
+        competitions = JSON.parse(competitions);
+        for (var i = 0; i < competitions.length; i++) {
+            //показываем количество всех выбранных конкурсов
+            $(forms[i]).parent().parent().parent().parent().show();
+            $(forms[i]).hide();
+            var childrensAfter;
+            childrensAfter = $($(forms[i]).parent().siblings()[0]).children();
+            childrensAfter.parent().show();
+            $(childrensAfter[0]).children().text(competitions[i].fo.toLowerCase());
+            $(childrensAfter[1]).children().text(competitions[i].fac);
+            $(childrensAfter[2]).children().text(competitions[i].dir);
+            $(childrensAfter[3]).children().text(competitions[i].pr);
+            $(childrensAfter[4]).children().text(competitions[i].cg);
+            $(childrensAfter[5]).children().text(competitions[i].discipline.budPlace);
+            var min_ball = getMinSum(competitions[i].fo, competitions[i].fac, competitions[i].dir, competitions[i].cg);
+            $(childrensAfter[8]).children().text(min_ball);
+
+            for (var k = 0; k < competitions[i].discipline.disc.length-1; k++) {
+                try {
+                    $(childrensAfter[7]).append(competitions[i].discipline.disc[k][0] + ' - ' + competitions[i].discipline.disc[k][1]+';<br>');
+                }
+                catch (err) {
+                    console.log('Предметы и минимальные (пороговые) баллы для ' + (i+1) + ' конкурса не переданы!');
+                }
+            }
+            try {
+                $(childrensAfter[7]).append(competitions[i].discipline.disc[competitions[i].discipline.disc.length-1][0] + ' - ' + competitions[i].discipline.disc[competitions[i].discipline.disc.length-1][1]+'.');
+            }
+            catch (err) {
+                console.log('Предметы и минимальные (пороговые) баллы для ' + (i+1) + ' конкурса не переданы!');
+            }
+            //кнопка Удалить
+            $($($($(forms[i]).parent().parent().siblings()[0]).children()[1]).children()[0]).show();
+        }
+
+        maxCountDir = funCountCurrentDir();
+
+        $('#btnNext').show();
+        for (i = 0; i < forms.length; i++) {
+            if (($($(forms[i]).children()[0]).css('display')=='none') && ($($(forms[i]).parent().siblings()[0]).css('display')=='none')) {
+                form = $(forms[i]);
+                break;
+            }
+        }
+        funCountCompetitions();
+        if (!canAddDir) {
+            addFoOptionsForStayCg(form);
+        }
+        else {
+            for (i = 0; i < forms.length; i++) {
+                if (($(forms[i].children()[0]).css('display')=='none') && ($($($(forms[i].parent().siblings()[0]).children()[0]).children()[0]).text()=='')) {
+                    $(forms[i].children()[0]).show();
+                    $(forms[i].children()[1]).show();
+                    $(forms[i].children()[1]).append($('<option>', {value: "",text: ""}));
+                    for (var a = 0; a < myData.length; a++) {
+                        for (var k = 0; k < listFO.length; k++) {
+                            if (listFO[k][0]==myData[a].fo) {
+                                $(forms[i].children()[1]).append($('<option>', {
+                                    value: listFO[k][1],
+                                    text: listFO[k][1]
+                                }));
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+    }
+});
+</script>

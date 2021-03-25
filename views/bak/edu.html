@@ -1,0 +1,83 @@
+{{extend 'layout.html'}}
+<h1 class="h1">{{=T("Applying for a bachelor's degree or specialty")}}</h1>
+{{include 'btn_menu.html'}}
+<script src="{{=URL('static','js/jquery.maskedinput2.js')}}"></script>
+
+{{=form}}
+
+<script>
+    $("#edu_year").mask("9999");
+
+    var myArray, sessionLevel, sessionDocsEdu;
+    {{=ASSIGNJS(myArray = json_educational_info)}};
+    {{=ASSIGNJS(sessionLevel = session_level)}};
+    {{=ASSIGNJS(sessionDocsEdu = session_docs_edu)}};
+    myArray = JSON.parse(myArray);
+
+    if (sessionLevel != 'None') {
+        $('#level').val(sessionLevel);
+        for (var i = 0; i < myArray.length; i++) {
+            if (myArray[i].eduLevelId==sessionLevel) {
+                if (myArray[i].eduDocument.length != 1) {
+                    $('#eduDocument').removeClass('d-none');
+                }
+                else {
+                    $('#eduDocument').addClass('d-none');
+                }
+                if (sessionDocsEdu!='None') {
+                    for (var k = 0; k < myArray[i].eduDocument.length; k++) {
+                        $('#docsedu').append($('<option>', {value: myArray[i].eduDocument[k].eduDocID,text: myArray[i].eduDocument[k].eduDoc}));
+                        if (myArray[i].eduDocument[k].eduDocID == sessionDocsEdu) {
+                            $('#docsedu').val(sessionDocsEdu);
+                        }
+                    }
+                }
+                else {
+                    for (var k = 0; k < myArray[i].eduDocument.length; k++) {
+                        $('#docsedu').append($('<option>', {value: myArray[i].eduDocument[k].eduDocID,text: myArray[i].eduDocument[k].eduDoc}));
+                    }
+                }
+            }
+        }
+    }
+    else {
+        for (var i = 0; i < myArray.length; i++) {
+            if (myArray[i].eduLevelId == $('#level').val()) {
+                if (myArray[i].eduDocument.length != 1) {
+                    $('#eduDocument').removeClass('d-none');
+                }
+                else {
+                    $('#eduDocument').addClass('d-none');
+                }
+                for (var k = 0; k < myArray[i].eduDocument.length; k++) {
+                    $('#docsedu').append($('<option>', {value: myArray[i].eduDocument[k].eduDocID,text: myArray[i].eduDocument[k].eduDoc}));
+                }
+            }
+        }
+    }
+
+    $('#level').on('change', function() {
+        $('#docsedu').find('option').remove();
+        for (var i = 0; i < myArray.length; i++) {
+            if (myArray[i].eduLevelId == $('#level :selected').val()) {
+                if (myArray[i].eduDocument.length != 1) {
+                    $('#eduDocument').removeClass('d-none');
+                }
+                else {
+                    $('#eduDocument').addClass('d-none');
+                }
+                for (var k = 0; k < myArray[i].eduDocument.length; k++) {
+                    $('#docsedu').append($('<option>', {value: myArray[i].eduDocument[k].eduDocID,text: myArray[i].eduDocument[k].eduDoc}));
+                }
+            }
+        }
+    });
+
+    $(function() {
+        if ({{=session.abit_country}} != 1) {
+            $('#region').val(1001);
+            $('#colRegion').removeClass('d-flex');
+            $('#colRegion').addClass('d-none');
+        }
+    });
+</script>

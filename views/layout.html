@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="no-js " lang="{{=T.accepted_language or 'en'}}" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133208464-3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '');
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="keywords" content="РГАУ-МСХА">
+        <meta name="robots" content="index, follow">
+        <meta property="og:site_name" content="РГАУ-МСХА">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="{{=request.application}}" content="Подготовка заявления и прилагаемых документов для отправки по электронной почте">
+        <meta name="description" content="Предварительная подача документов для поступления в Российский Государственный Аграрный Университет имени К.А. Тимирязева">
+        <meta property="og:description" content="РОССИЙСКИЙ ГОСУДАРСТВЕННЫЙ АГРАРНЫЙ УНИВЕРСИТЕТ - МСХА ИМЕНИ К.А. ТИМИРЯЗЕВА">
+        <title>{{=settings.title or response.title or request.application}}</title>
+        <link rel="icon" type="image/x-icon" href="https://oas.timacad.ru/application/static/images/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.timacad.ru/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.timacad.ru/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.timacad.ru/favicon-16x16.png">
+        <link rel="mask-icon" href="https://www.timacad.ru/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="stylesheet" href="{{=URL('static','css/bootstrap.min.css')}}"/>
+        <link rel="stylesheet" href="{{=URL('static','css/rgau.css')}}"/>
+        <link rel="stylesheet" href="{{=URL('static','css/application.css')}}"/>
+        {{include 'web2py_ajax.html'}} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->
+        {{block head}}{{end}}
+    </head>
+    <body class="flex-wrapper">
+        <div class="stick-wrapper content-up">
+            <header class="header header_inner">
+                <nav class="upper-nav navbar  navbar-expand">
+                    <div class="content-wrapper align-items-center">
+                        <div class="row">
+                            <div class="upper-nav__first-block col-6">
+                                <ul class="navbar-nav mr-auto ">
+                                    <li class="upper-nav__link-item nav-item ">
+                                        <a href="https://www.timacad.ru/incoming" class="upper-nav__link nav-link ">Абитуриенту</a>
+                                    </li>
+                                    <li class="upper-nav__link-item nav-item ">
+                                        <a href="https://www.timacad.ru/for-students/" class="upper-nav__link nav-link ">{{=T('Students')}}</a>
+                                    </li>
+                                    <li class="upper-nav__link-item nav-item ">
+                                        <a href="https://www.timacad.ru/for-graduates/" class="upper-nav__link nav-link ">{{=T('Graduates')}}</a>
+                                    </li>
+                                    <li class="upper-nav__link-item nav-item ">
+                                        <a href="https://www.timacad.ru/for-employees/" class="upper-nav__link nav-link ">{{=T('Employees')}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="upper-nav__second-block col-6 text-right">
+                                <a target="_blank" href="https://vk.com/rsau_official" class="upper-nav__second-block-item upper-nav__soc-link upper-nav__soc-link_vk" aria-label="VK" rel="noreferrer">
+                                    <svg class="svg-soc-vk-dims">
+                                        <use xlink:href="{{=URL('static', 'images/sprite-symbol.svg')}}#soc-vk"></use>
+                                    </svg>
+                                </a>
+                                <a target="_blank" href="https://www.facebook.com/%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D0%B0%D0%B3%D1%80%D0%B0%D1%80%D0%BD%D1%8B%D0%B9-%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82-%D0%9C%D0%A1%D0%A5%D0%90-%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-%D0%9A%D0%90-%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0-1957666314454914/" class="upper-nav__second-block-item upper-nav__soc-link upper-nav__soc-link_fb" aria-label="Facebook" rel="noreferrer">
+                                    <svg class="svg-soc-fb-dims">
+                                        <use xlink:href="{{=URL('static', 'images/sprite-symbol.svg')}}#soc-fb"></use>
+                                    </svg>
+                                </a>
+                                <a target="_blank" href="https://www.instagram.com/timiryazevka_official/" class="upper-nav__second-block-item upper-nav__soc-link upper-nav__soc-link_in" aria-label="Instagram" rel="noreferrer">
+                                    <svg class="svg-soc-vk-dims">
+                                        <use xlink:href="{{=URL('static', 'images/sprite-symbol.svg')}}#soc-in"></use>
+                                    </svg>
+                                </a>
+                                <div class="upper-nav__second-block-item js-blind-toggle">
+                                    <svg class=" upper-nav__blind svg-linz-dims">
+                                        <!--<use xlink:href="/img/vector/sprite-symbol.svg#linz"></use>-->
+                                    </svg>
+                                </div>
+                                <form action="https://www.timacad.ru/search" method="get" class="upper-nav__search-form">
+                                    <div class="input-group">
+                                        <input class="upper-nav__search-field form-control" name="query" placeholder="" aria-label="Search for..." type="text">
+                                        <div class="input-group-btn">
+                                            <button class="upper-nav__search-btn btn btn-secondary" type="submit" aria-label="Поиск">
+                                                <svg class="svg-magn-glass-dims">
+                                                    <use xlink:href="{{=URL('static', 'images/sprite-symbol.svg')}}#magn-glass">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" id="magn-glass" viewBox="0 0 22 22.0005474" width="100%" height="100%">
+                                                            <path d="M21.626 20.79l-5.422-5.421a8.91 8.91 0 0 0 2.18-5.835 8.91 8.91 0 0 0-2.616-6.317A8.908 8.908 0 0 0 9.45.6a8.911 8.911 0 0 0-6.317 2.617A8.903 8.903 0 0 0 .517 9.534a8.91 8.91 0 0 0 2.617 6.318 8.912 8.912 0 0 0 12.15.436l5.423 5.422a.65.65 0 1 0 .92-.92zM4.053 14.933a7.607 7.607 0 0 1-2.236-5.398c0-1.957.744-3.908 2.236-5.398A7.607 7.607 0 0 1 9.45 1.9c1.955 0 3.905.744 5.397 2.236a7.603 7.603 0 0 1 2.236 5.398 7.609 7.609 0 0 1-2.236 5.398 7.604 7.604 0 0 1-5.397 2.236 7.606 7.606 0 0 1-5.398-2.236z"></path>
+                                                            <path d="M5.563 13.423a5.472 5.472 0 0 1-1.56-4.631.3.3 0 1 0-.594-.083 6.071 6.071 0 0 0 1.73 5.138.3.3 0 0 0 .424-.424z"></path>
+                                                        </svg>
+                                                    </use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="upper-nav__login-dropdown upper-nav__login-dropdown_right-align  dropdown">
+                                    <span class="upper-nav__lang-btn" id="dropdownUserMenuButton" data-toggle="dropdown">
+                                        <svg class="svg-avatar-dims">
+                                            <use xlink:href="{{=URL('static', 'images/sprite-symbol.svg')}}#avatar"></use>
+                                        </svg>
+                                    </span>
+                                    <div class="upper-nav__dropdown dropdown-menu text-right"
+                                         aria-labelledby="dropdownUserMenuButton" id="portals">
+                                        <a class="upper-nav__dropdown-item dropdown-item" target="_blank"
+                                           href="{{=URL('webabit', 'default', 'user')}}" rel="noreferrer">
+                                            {{=T('Entrants personal cabinet')}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="header__bg">
+                    <a href="https://www.timacad.ru/" class="header__title-container">
+                        <div class="content-wrapper text-center content-wrapper-header">
+                            <img class="header__logo sm_hide" src="https://oas.timacad.ru/application/static/images/logo-respons.svg" alt="МСХА">
+                            <p class="header__type">{{=T('FEDERAL STATE BUDGETARY EDUCATIONAL INSTITUTION OF HIGHER EDUCATION')}}</p>
+                            <p class="header__name">{{=T('RUSSIAN STATE AGRARIAN UNIVERSITY')}} -<br>{{=T('MOSCOW TIMIRYAZEV AGRICULTURAL ACADEMY')}}</p>
+                            <p class="mobile_header_name">{{=T('RSAU - MOSCOW TIMIRYAZEV AGRICULTURAL ACADEMY')}}</p>
+                        </div>
+                    </a>
+                    {{include 'lower_panel.html'}}
+                    <div class="content-wrapper"></div>
+                </div>
+            </header>
+            <div class="pos-f-t">
+                <nav class="navbar navbar-dark">
+                    <button class="navbar-toggler" id="btnMobile" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="bg-dark p-4">
+                        <ul class="navbar-nav mr-auto ">
+                            <li class="upper-nav__link-item nav-item">
+                                <a href="https://www.timacad.ru/go/aHR0cDovL3d3dy5mZHAudGltYWNhZC5ydS9hYml0dXIv" class="js-touch-detect lower-nav__link lower-nav__link--root  nav-link">Абитуриентам</a>
+                            </li>
+                            <li class="upper-nav__link-item nav-item">
+                                <a href="https://www.timacad.ru/about" class="js-touch-detect lower-nav__link lower-nav__link--root  nav-link">Об университете</a>
+                            </li>
+                            <li class="upper-nav__link-item nav-item">
+                                <a href="https://www.timacad.ru/education" class="js-touch-detect lower-nav__link lower-nav__link--root lower-nav__link--active nav-link">Обучение</a>
+                            </li>
+                            <li class="upper-nav__link-item nav-item">
+                                <a href="https://www.timacad.ru/incoming" class="js-touch-detect lower-nav__link lower-nav__link--root  nav-link">Поступающим</a>
+                            </li>
+                            <li class="upper-nav__link-item nav-item">
+                                <a href="https://www.timacad.ru/science" class="js-touch-detect lower-nav__link lower-nav__link--root  nav-link">Наука и инновации</a>
+                            </li>
+                            <li class="upper-nav__link-item nav-item">
+                                <a href="https://www.timacad.ru/go/aHR0cDovL3d3dy5pbnRlci50aW1hY2FkLnJ1Lw==" class="js-touch-detect lower-nav__link lower-nav__link--root  nav-link">Международная деятельность</a>
+                            </li>
+                            <li class="upper-nav__link-item nav-item">
+                                <a href="https://www.timacad.ru/student-life" class="js-touch-detect lower-nav__link lower-nav__link--root  nav-link">Студенческая жизнь</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <ol class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <a href="https://www.timacad.ru/" itemprop="item">
+                            <span itemprop="name">{{=T('Main')}}</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <a href="http://www.fdp.timacad.ru/abitur/" itemprop="item">
+                            <span itemprop="name">{{=T('Entrants')}}</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </li>
+                    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <a href="{{=URL('default', 'index')}}" itemprop="item">
+                            <span itemprop="name">{{=T('Filing of application')}}</span>
+                        </a>
+                        <meta itemprop="position" content="3">
+                    </li>
+                </ol>
+                {{block center}}
+                {{include}}
+                {{end}}
+            </div>
+        </div>
+
+        <footer class="footer footer-down">
+            <div class="content-wrapper">
+                <div class="row clear_margin">
+                    <div class="col-4 p-r">
+                        <div class="footer__flag">
+                            <div class="footer__flag-inner">
+                                <div class="row align-items-center">
+                                    <div class="col-4 mobile_flag">
+                                        <img class="footer__logo" src="https://oas.timacad.ru/application/static/images/logo-respons.svg" alt="РГАУ-МСХА">
+                                    </div>
+                                    <div class="col-8 mobile_hide">
+                                        <h4 class="footer__name">{{=T('RSAU-MTAA')}}<br>{{=T('named after K. A. Timiryazev')}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 footer__right-col">
+                        <div class="footer__row">
+                            <a class="footer__top-link text-uppercase" href="https://www.timacad.ru/about/sveden">{{=T('Information about the educational organization')}}</a>
+                        </div>
+                        <div class="footer__row">
+                            <a class="footer__top-link" href="http://www.web2py.com/">POWERED BY WEB2PY</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clear_margin ft_custom">
+                    <hr class="hr">
+                    <div class="col-6">
+                        <div class="footer__row">
+                            <a href="https://www.timacad.ru/incoming">{{=T('Entrants')}}</a>
+                        </div>
+                        <div class="footer__row">
+                            <a href="https://www.timacad.ru/education">{{=T('Training')}}</a>
+                        </div>
+                        <div class="footer__row">
+                            <a href="https://www.inter.timacad.ru/">{{=T('International activity')}}</a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="footer__row">
+                            <a href="https://www.timacad.ru/phone">{{=T('Phone book')}}</a>
+                        </div>
+                        <div class="footer__row">
+                            <a href="https://www.timacad.ru/img/rastr/kampus-map.jpg" target="_blank" rel="noreferrer">
+                                <svg data-high-res-src="/img/rastr/kampus-map.jpg" class="svg-campus-map-dims js-img-viewer">
+                                    <use xlink:href="{{=URL('static', 'images/sprite-symbol.svg')}}#campus-map"></use>
+                                </svg>
+                                <span>{{=T('Campus map')}}</span>
+                            </a>
+                        </div>
+                        <div class="footer__row">
+                            <a href="https://www.timacad.ru/student-life/prozhivanie">{{=T("Student's life")}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clear_margin">
+                    <hr class="hr">
+                    <div class="col-12">
+                        <!--<p class="text-uppercase text-center">{{=T('Phone number of the admissions committee')}}: +7&nbsp;(499)&nbsp;977-14-55, +7&nbsp;(499)&nbsp;977-12-74</p>-->
+                        <p style="text-align: center;">E-MAIL: priem@rgau-msha.ru</p>
+                    </div>
+                </div>
+                <div class="row clear_margin">
+                    <hr class="hr">
+                    <div class="col-sm-12 col-md-6 copyright">© {{=T('RSAU-MTAA')}} {{=T('named after K. A. Timiryazev')}}, {{=request.now.year}}</div>
+                    <div class="col-sm-12 col-md-6 footer__socials">
+                        <a href="https://vk.com/rsau_official" class="footer__socials-links upper-nav__soc-link upper-nav__soc-link_vk" aria-label="VK">
+                            <svg class="">
+                                <use xlink:href="{{=URL('static', 'images/sprite-symbol.svg')}}#soc-vk"></use>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D0%B0%D0%B3%D1%80%D0%B0%D1%80%D0%BD%D1%8B%D0%B9-%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82-%D0%9C%D0%A1%D0%A5%D0%90-%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-%D0%9A%D0%90-%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%B0-1957666314454914/" class="footer__socials-links upper-nav__soc-link upper-nav__soc-link_fb" aria-label="Facebook">
+                            <svg class="">
+                                <use xlink:href="{{=URL('static', 'images/sprite-symbol.svg')}}#soc-fb"></use>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/timiryazevka_official/" class="footer__socials-links upper-nav__soc-link upper-nav__soc-link_in" aria-label="Instagram">
+                            <svg class="">
+                                <use xlink:href="{{=URL('static', 'images/sprite-symbol.svg')}}#soc-in"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            $(function() {
+                var first = true;
+                $("#btnMobile").on('click', function() {
+                    if ($("#navbarToggleExternalContent").css('display')=='none') {
+                        $("#navbarToggleExternalContent").show();
+                    }
+                    else {
+                        $("#navbarToggleExternalContent").hide();
+                    }
+                });
+                $("#dropdownUserMenuButton").on('click', function() {
+                    if (first) {
+                        $("#portals").show();
+                        first = false;
+                    }
+                    else {
+                        $("#portals").hide();
+                        first = true;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+

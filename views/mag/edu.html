@@ -1,0 +1,67 @@
+{{extend 'layout.html'}}
+<h1 class="h1">{{=T("Applying for a master's degree")}}</h1>
+{{include 'btn_menu_mag_and_asp.html'}}
+<link rel="stylesheet" href="{{=URL('static','css/preloaderAndBtn.css')}}"/>
+<script src="{{=URL('static','js/jquery.maskedinput2.js')}}"></script>
+
+{{=form}}
+
+<div class="cssload-loader">
+        <div class="cssload-inner cssload-one"></div>
+        <div class="cssload-inner cssload-two"></div>
+        <div class="cssload-inner cssload-three"></div>
+    </div>
+<script>
+$(function() {
+
+    if ({{=session.abit_country}} != 1) {
+        $('#region').val(1001);
+        $('#colRegion').removeClass('d-flex');
+        $('#colRegion').addClass('d-none');
+    }
+
+    function showEduSwed(data) {
+        $('.cssload-loader').hide();
+        console.log(data);
+        data = JSON.parse(data);
+        if (!$.isEmptyObject(data)) {
+            $('#att').val(data.abitEduDocNum);
+            if (data.abitEduDocDate!='') {
+                $('#att_date').val(data.abitEduDocDate);
+                $('#edu_year').val(data.abitEduDocDate.substring(0,4));
+            }
+            else {
+                $('#att_date').val('');
+                $('#edu_year').val('');
+            }
+        }
+    }
+
+    var first = true, elem = document.getElementById("our_graduate"), vuzName = '{{=vuzName}}';
+    $("#edu_year").mask("9999");
+    elem.addEventListener("click", function() {
+        if (first) {
+            $('.cssload-loader').show();
+            $("#vuzName").val(vuzName);
+            $("#adr").val('Москва');
+            jQuery.ajax({
+                url: "get_edu_swed",
+                success: showEduSwed,
+                error: function (data) {
+                    $('.cssload-loader').hide();
+                    console.log('Error', data);
+                }
+            });
+            first = false;
+        }
+        else {
+            $("#adr").val('');
+            $("#vuzName").val('');
+            $('#att').val('');
+            $('#att_date').val('');
+            $('#edu_year').val('');
+            first = true;
+        }
+    });
+});
+</script>

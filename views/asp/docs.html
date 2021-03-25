@@ -1,0 +1,207 @@
+{{extend 'layout.html'}}
+<h1 class="h1">{{=T('Application for admission to graduate school')}}</h1>
+{{include 'link_menu_mag_and_asp.html'}}
+<script src="{{=URL('static','js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{=URL('static','js/loadingDocuments.js')}}"></script>
+<script>
+    var load_link = "{{=URL('mag', 'load_document')}}";
+</script>
+<link rel="stylesheet" href="{{=URL('static','css/preloaderAndBtn.css')}}"/>
+<div class="cssload-loader">
+    <div class="cssload-inner cssload-one"></div>
+    <div class="cssload-inner cssload-two"></div>
+    <div class="cssload-inner cssload-three"></div>
+</div>
+<h4>Прикрепление документов</h4>
+<div class="text-left">
+    <p class="paragraf">Размер каждого загружаемого файла должен быть меньше 10 мб. Допустимые типы файлов документов
+        (сканы): pdf, tiff, png, bmp, jpeg, jpg. Сканы должны быть разборчивы. Если качество сканов будет
+        неудовлетворительным, в приеме документов будет отказано.</p>
+</div>
+
+<div class="accordion mb-3" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link btn-lg text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+          {{=session.abit_doc_type_name if session.abit_doc_type_name is not None else T("Identity document")}}
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <p class="paragraf">У российского паспорта сканируются 2-3 стр., 5 стр. или последующая (с данными о
+                    регистрации), 19 стр. (если ЕГЭ сдавался по старому паспорту).</p>
+            </div>
+        </div>
+        <div id="passport">
+            {{=entrant_identity}}
+        </div>
+          <div class="row">
+            <div class="col">
+                <button id="btnOne" class="col-sm-12 col-lg-4 good-btn" data-doctype="1">
+                    <div class="my-btn-conteiner">
+                        <span class="glyphicon glyphicon-paperclip"></span>
+                        <p class="p-btn">Прикрепить</p>
+                    </div>
+                </button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link btn-lg text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">
+          {{=session.edu_docsedu if session.edu_docsedu is not None else T("Education certificate")}}
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+          <div class="row">
+        <div class="col">
+            <p class="paragraf">У документа об образовании сканируется разворот аттестата/диплома.</p>
+        </div>
+    </div>
+    <div id="edu">
+        {{=entrant_educational}}
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnTwo" class="col-sm-12 col-lg-4 good-btn" data-doctype="2">
+                <div class="my-btn-conteiner">
+                    <span class="glyphicon glyphicon-paperclip"></span>
+                    <p class="p-btn">Прикрепить</p>
+                </div>
+            </button>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link btn-lg text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseSix"
+                aria-expanded="false" aria-controls="collapseSix">
+          Вкладыш документа об образовании
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+      <div class="card-body">
+          <div class="row">
+        <div class="col">
+            <p class="paragraf">Сканируются все страницы с оценками. Документ об образовании без вкладыша не действителен!</p>
+        </div>
+    </div>
+    <div id="edu_inside">
+        {{=entrant_educational_inside}}
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnSix" class="col-sm-12 col-lg-4 good-btn" data-doctype="20">
+                <div class="my-btn-conteiner">
+                    <span class="glyphicon glyphicon-paperclip"></span>
+                    <p class="p-btn">Прикрепить</p>
+                </div>
+            </button>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link btn-lg text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+                aria-expanded="false" aria-controls="collapseFour">
+          {{=T('Individual achievements')}}
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div class="card-body">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h5>Перечень индивидуальных достижений, учитываемых при приёме на обучение</h5>
+            <p class="paragraf">Если максимальный балл за индивидуальное достижение превышает предусмотренный, значит
+                возможно суммирование баллов. Поступающему может быть начислено не более 10 баллов суммарно.
+                Прикладываются документы, подтверждающие индивидуальные достижения, из ниже приведенного списка.</p>
+        </div>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Название</th>
+                <th scope="col">Балл</th>
+                <th scope="col">Максимальный балл</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{=html_achievements}}
+        </tbody>
+    </table>
+
+    <div id="achievement">
+        {{=entrant_achievement}}
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnThree" class="col-sm-12 col-lg-4 good-btn" data-doctype="3">
+                <div class="my-btn-conteiner">
+                    <span class="glyphicon glyphicon-paperclip"></span>
+                    <p class="p-btn">Прикрепить</p>
+                </div>
+            </button>
+        </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link btn-lg text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
+                aria-expanded="false" aria-controls="collapseFive">
+          {{=T('Other')}}
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+      <div class="card-body">
+          <div class="row">
+              <div class="col-12 text-center">
+                    <p class="paragraf">Целевые договоры и др.</p>
+              </div>
+          </div>
+          <div id="other">
+              {{=entrant_other}}
+          </div>
+          <div class="row">
+            <div class="col">
+                <button id="btnFour" class="col-sm-12 col-lg-4 good-btn" data-doctype="4">
+                    <div class="my-btn-conteiner">
+                        <span class="glyphicon glyphicon-paperclip"></span>
+                        <p class="p-btn">Прикрепить</p>
+                    </div>
+                </button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{=form}}
+<input type="file" accept="image/bmp, image/jpg, image/jpeg, image/png, image/tif, image/tiff, application/pdf, .tif"
+       id="openDialog" multiple="multiple" class="d-none"/>

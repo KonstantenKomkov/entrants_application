@@ -1,0 +1,26 @@
+{{extend 'layout.html'}}
+<h1 class="h1">{{=T("Applying for a bachelor's degree or specialty")}}</h1>
+{{include 'btn_menu.html'}}
+<script src="{{=URL('static','js/jquery.maskedinput2.js')}}"></script>
+
+{{=form1}}
+
+<script>
+    $(function() {
+        $('#doc_kodp').mask('999-999');
+
+        if ($('#country').val() != 1) {
+            $('#region').val(1001);
+            $('#colRegion').hide();
+        }
+
+        $('#country').on('change', function() {
+            if ($('#country').val() != 1) {
+                $('#region').val(1001);
+                $('#colRegion').hide();
+            } else {
+                $('#colRegion').show();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,67 @@
+.error,.label-danger{font-weight:500;text-align:center;display:block;width:100%;color:red;font-size:16px}
+.glyphicon{filter:invert(1);display:block;float:left;margin:-2px;transform: scale(0.75, 0.75);-ms-transform: scale(0.75, 0.75);-webkit-transform: scale(0.75, 0.75)}
+.p-btn{font-weight:400;display:block;float:left;margin:0;padding:0 0 0 10px}
+.my-btn-conteiner{display:inline-block;margin:0 auto;padding:0}
+.st-personal{margin-bottom:10px}
+.glyphicon-pencil{width:24px;height:24px;background-image:url(/application/static/images/pencil.png)}
+.glyphicon-send{width:23px;height:23px;background-image:url(/application/static/images/send.png)}
+.glyphicon-paperclip{width:26px;height:24px;background-image:url(/application/static/images/paperclip.png)}
+.glyphicon-26-24{filter:invert(1);display:block;float:left;margin:-2px;width:26px;height:24px;transform: scale(0.75, 0.75);-ms-transform: scale(0.75, 0.75);-webkit-transform: scale(0.75, 0.75)}
+.glyphicon-rgau{display:block;float:left;width:32px;height:32px;background-image:url(/application/static/images/favicon-32x32.png);background-repeat: no-repeat}
+.hover-none:hover{color:#fff;text-decoration:none;}
+.header__bg {background-image:url('https://oas.timacad.ru/application/static/images/header-bg-small.jpg')}
+.c-group {outline: 2px dashed #bbb;outline-offset: -5px;#outline: 2px dashed #bbb;padding: 10px;text-align: center}
+.equal, .equal > div[class*='col-'] {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex:1 0 auto}
+.Delete:before {color:red;content: "\2718"}
+.Add:before {color:green;content: "\271A"}
+.zero-padding{padding:0}
+.after-button{margin: 1rem 0}
+.chb-lbl-container{padding-top:.5rem;display:-webkit-inline-flex;display:inline-flex;justify-content:center;align-items:center;width:100%}
+.container-calc{justify-content:flex-end}
+.chb{flex:none;width:20px;height:20px}
+.direction{font-size:1.3em}
+.achievements{font-weight:bold;color:#fff;background-color:#3d7648}
+.useInfo{font-weight:700;color:#315700}
+.calcCg{padding-left:0;padding-right:0}
+.calc-label{margin-bottom:0;padding-right: 1.25rem}
+.btnCodeLabel{margin-bottom:.5rem;padding:0;visibility:hidden;display:block;float:left}
+.btnCode{width:100%;height:37px}
+.inputCodeLabel{visibility:hidden}
+.code{visibility:hidden}
+.invizible{display:none}
+.text-btnCodeLabel{padding:0 3px 0 0;margin:0;float:left;font-weight:400}
+.validate-email{margin:0}
+.validate-email >div >label{font-weight:400}
+.check-email-col-1{padding: 0 10px .5rem 0}
+.check-email-col-2{padding: 0 5px .5rem}
+.check-email-col-3{padding: 0 0 .5rem 10px}
+.evsa{width: 100%;justify-content: center}
+.evchb{justify-content: flex-start}
+.culcCG{padding-left:0;padding-right:0}
+.rf-citizen{padding:0}
+.edu-level{width:100%;background-image:linear-gradient(to bottom,#337ab7 0,#265a88 100%);background-repeat:repeat-x;border-color:#245580;color:#fff;background-color:#337ab7;font-size:16px;border:1px solid transparent;border-radius:4px;height:auto;display:-webkit-inline-flex;display:inline-flex;justify-content:center;align-items:center}
+.edu-level-form{margin:0;padding:0}
+.svg-btn{width:40px;height:40px;fill:#fff}
+.edu-level-col-first{padding:0 .25rem 0 0}
+.edu-level-col-second{padding:0 0 0 .25rem}
+.edu-level-btn-text{width:100%}
+.edu-level-row{margin-left:0;margin-right:0}
+.after-5-sec{font-weight:700;font-size:18px;color:green}
+.form-edu-span{display:block;border-left:1px solid #ced4da;border-top:1px solid #ced4da;border-bottom:1px solid #ced4da;border-bottom-left-radius:.25rem;border-top-left-radius:.25rem;background-color:#e9ecef;padding-top:2px;padding-left:2px;width:38px;height:38px;cursor: pointer}
+.chb-size{width: 20px;height: 20px}
+.chb-label{padding-top:3px;font-weight:400}
+.circle{width: 20px;height: 20px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px}
+.grey{background:#979997}
+.green{background:#3d7648}
+.document{border:1px solid black;width:300px;height:150px;font-weight:700;font-size:32px;margin:0 auto;position:relative;overflow:hidden}
+.expansion{padding:50px 0 0 0;margin:0}
+.card-header{background-color: #3d7648}
+.agreement-chb{width:20px;height:20px;margin-left:0}
+.ege-chb{height:20px}
+form label {font-weight: 400}
+@media (max-width: 767px) {
+	.check-email-col-1,.check-email-col-2{padding:0 0 .5rem}
+	.check-email-col-3{padding:0 0 2rem}
+	.edu-level-col-first{padding:0 0 .25rem 0}
+	.edu-level-col-second{padding:.25rem 0 0 0}
+}

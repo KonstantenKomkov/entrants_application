@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<h1 class="h1">{{=T('Application for admission to graduate school')}}</h1>
+{{include 'link_menu_mag_and_asp.html'}}
+
+{{=heading}}
+{{=statement}}
+{{=form}}
+{{if form.errors.agree is not None:}}
+{{=BEAUTIFY(form.errors.agree)}}
+{{pass}}

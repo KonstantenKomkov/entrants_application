@@ -1,0 +1,25 @@
+[2020-05-07 20:58:20] START
+[2020-05-07 21:00:44] EDIT new_application/models/db.py: -26
+[2020-05-07 21:02:15] DELETE new_application/models/menu.py: -97
+[2020-05-07 21:02:25] CREATE tables.py: 0
+[2020-05-07 21:02:48] EDIT new_application/models/tables.py: 176
+[2020-05-07 21:03:33] EDIT new_application/controllers/default.py: 107
+[2020-05-07 21:04:13] EDIT new_application/views/layout.html: 164
+[2020-05-07 21:04:41] CREATE lower_panel.html: 0
+[2020-05-07 21:05:03] EDIT new_application/views/lower_panel.html: 64
+[2020-05-07 21:07:00] EDIT new_application/models/db.py: 17
+[2020-05-07 21:08:24] CREATE bak.py: 0
+[2020-05-07 21:08:34] CREATE mag.py: 0
+[2020-05-07 21:08:54] CREATE useCalc.py: 0
+[2020-05-07 21:09:17] CREATE validationEmail.py: 0
+[2020-05-07 21:09:57] EDIT new_application/controllers/bak.py: 2337
+[2020-05-07 21:10:32] EDIT new_application/controllers/mag.py: 1897
+[2020-05-07 21:11:03] EDIT new_application/controllers/useCalc.py: 639
+[2020-05-07 21:11:35] EDIT new_application/controllers/validationEmail.py: 270
+[2020-05-12 13:36:50] CREATE mag_circles_panel.html: 0
+[2020-05-12 13:45:25] CREATE menu.py: 0
+[2020-05-12 14:15:25] DELETE application/views/mag_circles_panel.html: -7
+[2020-05-13 11:21:25] CREATE bak_and_mag.py: 0
+[2020-05-21 19:53:47] CREATE mag/documents.html: 0
+[2020-07-02 11:11:20] EDIT application/controllers/default.py: 0
+[2020-07-02 11:19:37] EDIT application/modules/bak_and_mag.py: 0

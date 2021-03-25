@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+response.link_menu = [('#' if request.function == 'swed' else URL('swed'),
+                      'green' if request.function == 'swed' else 'grey'),
+                     ('#' if request.function == 'edu' else URL('edu'),
+                      'green' if request.function == 'edu' else 'grey'),
+                     ('#' if request.function == 'select_cg' else URL('select_cg'),
+                      'green' if request.function == 'select_cg' else 'grey'),
+                     ('#' if request.function == 'marks' else URL('marks'),
+                      'green' if request.function == 'marks' else 'grey'),
+                     ('#' if request.function == 'docs' else URL('docs'),
+                      'green' if request.function == 'docs' else 'grey'),
+                     ('#' if request.function == 'send_app' else URL('send_app'),
+                      'green' if request.function == 'send_app' else 'grey')]
+
+response.btn_menu = [('' if request.function == 'swed' else XML('data-number="0"'),
+                      'green' if request.function == 'swed' else 'grey'),
+                     ('' if request.function == 'edu' else XML('data-number="1"'),
+                      'green' if request.function == 'edu' else 'grey'),
+                     ('' if request.function == 'select_cg' else XML('data-number="2"'),
+                      'green' if request.function == 'select_cg' else 'grey'),
+                     ('' if request.function == 'marks' else XML('data-number="3"'),
+                      'green' if request.function == 'marks' else 'grey'),
+                     ('' if request.function == 'docs' else XML('data-number="4"'),
+                      'green' if request.function == 'docs' else 'grey'),
+                     ('' if request.function == 'send_app' else XML('data-number="5"'),
+                      'green' if request.function == 'send_app' else 'grey')]
+
+response.link_menu_mag_and_asp = [('#' if request.function == 'swed' else URL('swed'),
+                                   'green' if request.function == 'swed' else 'grey'),
+                                  ('#' if request.function == 'edu' else URL('edu'),
+                                   'green' if request.function == 'edu' else 'grey'),
+                                  ('#' if request.function == 'select_cg' else URL('select_cg'),
+                                   'green' if request.function == 'select_cg' else 'grey'),
+                                  ('#' if request.function == 'docs' else URL('docs'),
+                                   'green' if request.function == 'docs' else 'grey'),
+                                  ('#' if request.function == 'send_app' else URL('send_app'),
+                                   'green' if request.function == 'send_app' else 'grey')]
+
+response.btn_menu_mag_and_asp = [('' if request.function == 'swed' else XML('data-number="0"'),
+                                  'green' if request.function == 'swed' else 'grey'),
+                                 ('' if request.function == 'edu' else XML('data-number="1"'),
+                                  'green' if request.function == 'edu' else 'grey'),
+                                 ('' if request.function == 'select_cg' else XML('data-number="2"'),
+                                  'green' if request.function == 'select_cg' else 'grey'),
+                                 ('' if request.function == 'docs' else XML('data-number="4"'),
+                                  'green' if request.function == 'docs' else 'grey'),
+                                 ('' if request.function == 'send_app' else XML('data-number="5"'),
+                                  'green' if request.function == 'send_app' else 'grey')]

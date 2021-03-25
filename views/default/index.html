@@ -1,0 +1,53 @@
+{{extend 'layout.html'}}
+{{=text}}
+<style>
+    .unit{text-align:left;font-size:3rem;font-weight:700}
+    .time{text-align:center;text-transform:uppercase}
+    #watch{padding-top:1rem}
+</style>
+<div id="watch" style="display:none">
+    <div class="row">
+        <div class="col-3 text-center unit" id="days"></div>
+        <div class="col-3 text-center unit" id="hours"></div>
+        <div class="col-3 text-center unit" id="minutes"></div>
+        <div class="col-3 text-center unit" id="seconds"></div>
+    </div>
+    <div class="row">
+        <div class="col-3 time">дней</div>
+        <div class="col-3 time">часов</div>
+        <div class="col-3 time">минут</div>
+        <div class="col-3 time">секунд</div>
+    </div>
+</div>
+<script>
+    $(function() {
+        var data = new FormData(),el,seconds = Math.floor({{=seconds}});
+        el = document.getElementById("bak");
+        if (el!=null) {
+            el.classList.remove("btn");
+        }
+        el = document.getElementById("mag");
+        if (el!=null) {
+            el.classList.remove("btn");
+        }
+        el = document.getElementById("asp");
+        if (el!=null) {
+            el.classList.remove("btn");
+        }
+        if (seconds!=0) {
+            $('#watch').show();
+            setInterval(function() {
+                if (seconds>0) {
+                    seconds--;
+                    $('#days').text(Math.floor(seconds/86400));
+                    $('#hours').text(Math.floor((seconds%86400)/3600));
+                    $('#minutes').text(Math.floor((seconds%3600)/60));
+                    $('#seconds').text(seconds%60);
+                }
+                else {
+                    window.location.reload();
+                }
+            }, 1000);
+        }
+    });
+</script>

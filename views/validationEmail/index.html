@@ -1,0 +1,297 @@
+{{extend 'layout.html'}}
+<h1 class="h1">{{=T('Validation of email')}}</h1>
+{{=form}}
+<script>
+$(function() {
+
+    function showMsg(data) {
+        console.log(data);
+        data = JSON.parse(data);
+        $('#btnCode').val("{{=T('Code was send')}}");
+        if (data[0]==1) {
+            $('#code').css('visibility','visible');
+            $('#msg2').hide();
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').hide();
+            $('#msg1').show();
+            $("#link1").attr("href", data[1]);
+            $('#link1').empty();
+            $('#link1').append("{{=T('your')}}"+" "+data[2]+" "+"{{=T('mail')}}");
+            $('#nMail').empty();
+            $('#nMail').append(' – '+$('#email').val());
+            $('#btnCode').val("{{=T('Code was send')}}");
+            $('#btnCode').prop( 'disabled', true );
+            $('#inputCodeLabel').css('visibility','visible');
+            $('#inputCodeLabel').css('font-weight',700);
+            $('#code').prop( 'disabled', false );
+            $('#code').focus();
+        }
+        else if (data[0]==2) {
+            $('#code').css('visibility', 'visible');
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').hide();
+            $('#msg1').hide();
+            $('#msg2').show();
+            $('#tMail').append($('#email').val());
+            $('#btnCode').val("{{=T('Code was send')}}");
+            $('#btnCode').prop( 'disabled', true );
+            $('#inputCodeLabel').css('visibility','visible');
+            $('#inputCodeLabel').css('font-weight',700);
+            $('#code').attr('disabled', false);
+            $('#code').focus();
+        }
+        else if (data[0]==3) {
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            $('#msg3-1').css('display','inline-block');
+            $('#msg3-1').css('color','red');
+            $('#msg3-1').css('font-weight',700);
+            $('#msg3-2').css('display','inline-block');
+            $('#btnCode').val("{{=T('Get code')}}");
+        }
+        else if (data[0]==4) {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            $('#msg4-1').css('display','inline-block');
+            $('#msg4-1').css('color','red');
+            $('#msg4-1').css('font-weight',700);
+            $('#msg4-2').css('display','inline-block');
+            $('#btnCode').val("{{=T('Get code')}}");
+        }
+        else if (data[0]==5) {
+            $('#btnCodeLabel').css('visibility','visible');
+            $('#inputCodeLabel').css('visibility','visible');
+            $('#inputCodeLabel').css('font-weight',700);
+            $('#code').css('visibility','visible');
+            $('#code').prop( 'disabled', false );
+            $('#code').focus();
+            $('#btnCode').val("{{=T('Code was send')}}");
+            $('#timer').append(data[1]);
+            if (data.length>2) {
+                $('#msg1').show();
+                $("#link1").attr("href", data[2]);
+                $('#link1').append('Вашу '+data[3]+' почту');
+                $('#nMail').append(' – '+$('#email').val());
+            }
+            else {
+                $('#msg2').show();
+                $('#tMail').append($('#email').val());
+            }
+            var _Seconds = $('#timer').text(),
+                int;
+            int = setInterval(function() { // запускаем интервал
+                if (_Seconds > 0) {
+                    _Seconds--; // вычитаем 1
+                    $('#timer').text(_Seconds);} // выводим получившееся значение в блок
+                else {
+                    clearInterval(int); // очищаем интервал, чтобы он не продолжал работу при _Seconds = 0
+                    $('#btnCode').val("{{=T('Get code')}}");
+                    $('#btnCodeLabel').css('visibility','hidden');
+                    $.web2py.enableElement($('#btnCode'));
+                }
+            }, 1000);
+        }
+        else if (data[0]==7) {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            $('#msg7').show();
+            $('#msg10').hide();
+        }
+        else if (data[0]==8) {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            if ($('#calc').val()==1) {
+                document.location.replace("{{=URL('bak','swed',vars=dict(calc=1))}}");
+            }
+            else {
+                document.location.replace("{{=URL('bak','swed')}}");
+            }
+        }
+        else if (data[0]==10) {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').show();
+            $('#msg1').hide();
+            $('#msg2').hide();
+        }
+        else if (data[0]==11) {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            $('#msg11').show();
+            setTimeout(function() {
+                if ($('#calc').val()==1) {
+                    document.location.replace("{{=URL('bak','swed',vars=dict(calc=1))}}");
+                }
+                else {
+                    document.location.replace("{{=URL('bak','swed')}}");
+                }
+            }, 5000);
+        }
+        else if (data[0]==12) {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            $('#msg11').show();
+            setTimeout(function() {
+                document.location.replace("{{=URL('mag','swed')}}");
+            }, 5000);
+        }
+        else if (data[0]==13) {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            document.location.replace("{{=URL('default','index')}}");
+        }
+        else if (data[0]==14) {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            document.location.replace("{{=URL('mag','swed')}}");
+        }
+        else if (data[0]==15) {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg6').hide();
+            $('#msg7').hide();
+            $('#msg10').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            $('#msg11').show();
+            setTimeout(function() {
+                document.location.replace("{{=URL('asp','swed')}}");
+            }, 5000);
+        }
+        else {
+            $('#msg3-1').css('display','none');
+            $('#msg3-2').css('display','none');
+            $('#msg4-1').css('display','none');
+            $('#msg4-2').css('display','none');
+            $('#msg7').hide();
+            $('#msg1').hide();
+            $('#msg2').hide();
+            $('#msg6').show();
+        }
+    }
+
+    $('#btnCode').keydown(function(event) {
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+
+    $('#btnCode').on('click', function() {
+        if (($('#email').val().indexOf('@')>-1) & ($('#email').val().length>8) & ($('#email').val().indexOf('.')>-1)) {
+            $('.js-validate-ten').hide();
+            if ($('#email').val().indexOf('icloud.com')>-1) {
+                $('#msg8').show();
+            }
+            else {
+                $('#msg8').hide();
+                $('#btnCode').prop( 'disabled', true );
+                $('#btnCode').val("{{=T('Working...')}}");
+                var data = new FormData();
+                data.append("email",$('#email').val());
+                data.append("edu_level",$('#edu_level').val());
+                jQuery.ajax({
+                    type: "POST",
+                    url: "{{=URL('validationEmail','VcodeToDbAndMail')}}",
+                    data: data,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        showMsg(data);
+                    },
+                    error: function(data){
+                        $('.cssload-loader').hide();
+                    }
+                });
+            }
+        }
+        else {
+            $('.js-validate-ten').show();
+        }
+    });
+
+    $("#code").on('input',function() {
+        if ($(this).val().length==7) {
+
+
+            function isNumeric(n) {
+                return !isNaN(parseFloat(n)) && isFinite(n);
+            }
+
+            if ( !isNumeric($(this).val()) ) {
+                $('#msg7').show();
+            }
+            else {
+                $('#msg7').hide();
+                ajax('{{=URL("chekCode")}}', ['code','email','edu_level'], showMsg);
+            }
+        }
+    });
+});
+</script>

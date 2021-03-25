@@ -1,0 +1,25 @@
+{{extend 'layout.html'}}
+<h1 class="h1">{{=T("Applying for a bachelor's degree or specialty")}}</h1>
+{{include 'btn_menu.html'}}
+<h4>Ввод результатов ЕГЭ</h4>
+{{if session.edu_docsedu=='Аттестат о среднем (полном) общем образовании':}}
+{{else:}}
+{{pass}}
+{{=form}}
+<script>
+    $(function() {
+        if ($("#egedocument").prop("checked")) {
+            $('#egeDocRow').removeClass('d-none');
+        } else {
+            $('#egeDocRow').addClass('d-none');
+        }
+        $('#egedocument').on('click', function() {
+            var current_position = $("#egedocument").prop("checked");
+            if (current_position) {
+                $('#egeDocRow').removeClass('d-none');
+            } else {
+                $('#egeDocRow').addClass('d-none');
+            }
+        });
+    });
+</script>
