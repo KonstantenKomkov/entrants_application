@@ -22,7 +22,7 @@
 
 Где посмотреть?
 -------------------------
-[Example]: http://example.com/
+[1]: http://google.com/        "Google"
 [Подача документов на поступление]:https://oas.timacad.ru/application
 [Личный кабинет абитуриента]:https://oas.timacad.ru/webabit
 [Личный кабинет студента]:https://oas.timacad.ru/stud
