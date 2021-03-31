@@ -22,12 +22,15 @@
 
 Где посмотреть?
 -------------------------
-[Google][1]
+[Подача документов на поступление][1]
+[Личный кабинет абитуриента][1]
+[Личный кабинет студента][1]
+[Списки на поступление][1]
+[Электронная очередь][1]
 
 
-[1]: http://google.com/        "Google"
-[Подача документов на поступление]:https://oas.timacad.ru/application
-[Личный кабинет абитуриента]:https://oas.timacad.ru/webabit
-[Личный кабинет студента]:https://oas.timacad.ru/stud
-[Списки на поступление]:https://oas.timacad.ru/forabit
-[Электронная очередь]:https://oas.timacad.ru/queue
+[1]: https://oas.timacad.ru/application "Подача документов на поступление"
+[2]: https://oas.timacad.ru/webabit     "Личный кабинет абитуриента"
+[3]: https://oas.timacad.ru/stud        "Личный кабинет студента"
+[4]: https://oas.timacad.ru/forabit     "Списки на поступление"
+[5]: https://oas.timacad.ru/queue       "Электронная очередь"
