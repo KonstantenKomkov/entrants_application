@@ -20,7 +20,7 @@
 
 Структура проекта
 -------------------------
-Проект  использует концепцию MVC. Где файл tables.py представляет собой модель. Папка views содержит файлы представлений. Папка controllers содержит контроллеры. Контроллеры bak.py, mag.py, asp.py описывают формы подачи документов на бакалавриат, в магистратуру и аспирантуру соответственно. Общий код из этих контроллеров вынесен в модуль bak_and_mak.py в папке modules. За подтверждение почты отвечает контроллер validationEmail.py.
+Проект  использует концепцию MVC. Где файл [tables.py][7] представляет собой модель. Папка views содержит файлы представлений. Папка controllers содержит контроллеры. Контроллеры [bak.py][8], [mag.py][9], [asp.py][10] описывают формы подачи документов на бакалавриат, в магистратуру и аспирантуру соответственно. Общий код из этих контроллеров вынесен в модуль [bak_and_mak.py][12] в папке modules. За подтверждение почты отвечает контроллер [validationEmail.py][11].
 
 Где посмотреть?
 -------------------------
@@ -31,9 +31,15 @@
 - [Электронная очередь][5]
 
 
-[1]: https://oas.timacad.ru/application                                             "Подача документов на поступление"
-[2]: https://oas.timacad.ru/webabit                                                 "Личный кабинет абитуриента"
-[3]: https://oas.timacad.ru/stud                                                    "Личный кабинет студента"
-[4]: https://oas.timacad.ru/forabit                                                 "Списки на поступление"
-[5]: https://oas.timacad.ru/queue                                                   "Электронная очередь"
-[6]: https://github.com/web2py/web2py/blob/master/applications/welcome/models/db.py "db.py"
+[1]: https://oas.timacad.ru/application                                                                   "Подача документов на поступление"
+[2]: https://oas.timacad.ru/webabit                                                                       "Личный кабинет абитуриента"
+[3]: https://oas.timacad.ru/stud                                                                          "Личный кабинет студента"
+[4]: https://oas.timacad.ru/forabit                                                                       "Списки на поступление"
+[5]: https://oas.timacad.ru/queue                                                                         "Электронная очередь"
+[6]: https://github.com/web2py/web2py/blob/master/applications/welcome/models/db.py                       "db.py"
+[7]: https://github.com/KonstantenKomkov/entrants_application/blob/master/models/tables.py                "tables.py"
+[8]: https://github.com/KonstantenKomkov/entrants_application/blob/master/controllers/bak.py              "bak.py"
+[9]: https://github.com/KonstantenKomkov/entrants_application/blob/master/controllers/mag.py              "mag.py"
+[10]: https://github.com/KonstantenKomkov/entrants_application/blob/master/controllers/asp.py             "asp.py"
+[11]: https://github.com/KonstantenKomkov/entrants_application/blob/master/controllers/validationEmail.py "validationEmail.py"
+[12]: https://github.com/KonstantenKomkov/entrants_application/blob/master/modules/bak_and_mag.py         "bak_and_mag.py"
